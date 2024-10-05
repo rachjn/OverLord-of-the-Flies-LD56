@@ -32,8 +32,8 @@ public class WallMovement : MonoBehaviour
         // Move the walls inward at a constant speed
         if (Vector2.Distance(leftWall.position, rightWall.position) > minSize.x)
         {
-            leftWall.position = Vector3.MoveTowards(leftWall.position, originalRightWallPosition, 0.1f * shrinkSpeed * Time.deltaTime);
-            rightWall.position = Vector3.MoveTowards(rightWall.position, originalLeftWallPosition,  0.1f * shrinkSpeed * Time.deltaTime);
+            leftWall.position = Vector3.MoveTowards(leftWall.position, originalRightWallPosition, 0.05f * shrinkSpeed * Time.deltaTime);
+            rightWall.position = Vector3.MoveTowards(rightWall.position, originalLeftWallPosition,  0.05f * shrinkSpeed * Time.deltaTime);
         }
 
         if (Vector2.Distance(topWall.position, bottomWall.position) > minSize.y)
