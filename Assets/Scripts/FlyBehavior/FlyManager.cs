@@ -29,8 +29,9 @@ public class FlyManager : MonoBehaviour
         
         // simple following player
         // if (Vector2.Distance(pather.destination, swarmCenter.position) > swarmManager.SwarmRadius)
-        if (Vector2.Distance(pather.destination, swarmCenter.position) > swarmManager.SwarmRadius || Random.Range(0, 100) < 3)
+        if (Vector3.Distance(pather.destination, swarmCenter.position) > swarmManager.SwarmRadius || Random.Range(0, 100) < 0.1)
         {
+            Debug.Log("repathing");
             Vector3 randOffset = Random.insideUnitCircle;
             pather.destination = swarmCenter.position + (randOffset * swarmManager.SwarmRadius);
         }
