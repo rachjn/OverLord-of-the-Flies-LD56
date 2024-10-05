@@ -144,11 +144,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb86cc16151f4d5495e7d2412a789d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   player: Player1
   enemy: Player2
   enemyTransform: {fileID: 408664545}
   playerControlScheme: 1
 --- !u!114 &48033483
+=======
+  playerControlScheme: 0
+--- !u!114 &48033488
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -535,6 +540,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5522757594338977218, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 48033488}
     - targetCorrespondingSourceObject: {fileID: 5522757594338977218, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 48033482}
