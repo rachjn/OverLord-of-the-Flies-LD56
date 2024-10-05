@@ -181,7 +181,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5522757594338977218, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1819722587}
   m_SourcePrefab: {fileID: 100100000, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
 --- !u!1 &1043987292
 GameObject:
@@ -275,6 +278,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1819722581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5522757594338977218, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
+  m_PrefabInstance: {fileID: 277904723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1819722587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819722581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cb9170f87b9460287bb87e57e1cb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  attackDamage: 1
 --- !u!1001 &5825174110864258077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,6 +357,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5522757594338977218, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
       insertIndex: 2
       addedObject: {fileID: 5825174110864258079}
+    - targetCorrespondingSourceObject: {fileID: 5522757594338977218, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5825174110864258084}
   m_SourcePrefab: {fileID: 100100000, guid: 07f618b4881644a1aa68bc340a2f4e5c, type: 3}
 --- !u!1 &5825174110864258078 stripped
 GameObject:
@@ -355,6 +380,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   playerControlScheme: 1
+--- !u!114 &5825174110864258084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825174110864258078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cb9170f87b9460287bb87e57e1cb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  attackDamage: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
