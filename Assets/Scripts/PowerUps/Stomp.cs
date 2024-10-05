@@ -16,8 +16,10 @@ public class Stomp : PowerUps
         
     }
     
-    public override void activatePowerUp()
+    public override void activatePowerUp(string self, string enemy)
     {
+        Debug.Log("activate stomp powerup");
+
         //start an indicator on map 
         //drop object down
         //on impact stuns everything in impact circle

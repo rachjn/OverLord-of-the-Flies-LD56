@@ -16,8 +16,10 @@ public class Taunt : PowerUps
         
     }
     
-    public override void activatePowerUp()
+    public override void activatePowerUp(string self, string enemy)
     {
+        Debug.Log("activate taunt powerup");
+
       //play animation
       //disable opponnent movement and actions
     }

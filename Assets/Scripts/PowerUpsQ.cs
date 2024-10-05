@@ -12,8 +12,8 @@ public class PowerUpsQ : MonoBehaviour
     [SerializeField] private PlayerItems player;
     [SerializeField] private List<GameObject> powerUpSlots;
     [SerializeField] private List<GameObject> powerUpsList;
-    public Dictionary<PowerUpType, GameObject> powerUpSprites = new Dictionary<PowerUpType, GameObject>();
-    private List<PowerUpType> playerPowerUps;
+    public static Dictionary<PowerUpType, GameObject> powerUpSprites = new Dictionary<PowerUpType, GameObject>();
+    public List<PowerUpType> playerPowerUps;
     
     
     void Start()
@@ -22,7 +22,6 @@ public class PowerUpsQ : MonoBehaviour
         {
             powerUpSprites[p.GetComponent<PowerUps>().getPowerUpType()] = p;
         }
-        Debug.Log(powerUpSprites);
     }
     void Update()
     {

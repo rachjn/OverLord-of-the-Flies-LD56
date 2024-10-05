@@ -7,21 +7,29 @@ public class PlayerItems : MonoBehaviour
 {
     // Start is called before the first frame update
     // public List<PowerUpType> testPlayerPowerUps;
-    public Queue<PowerUpType> playerPowerUps;
+    public Queue<PowerUps> playerPowerUps;
     private int numPowerUps = 0;
     private int maxPowerUps = 3;
+    [SerializeField] private string player;
+    [SerializeField] private string enemy;
     [SerializeField] private int playerControlScheme = 0;
 
     void Start()
     {
-        playerPowerUps = new Queue<PowerUpType>();
+        playerPowerUps = new Queue<PowerUps>();
     }
 
     public List<PowerUpType> getPowerUps()
     {
-        return playerPowerUps.ToList();
+        List<PowerUpType> powerUpNames = new List<PowerUpType>();
+        foreach (PowerUps p in playerPowerUps)
+        {
+            powerUpNames.Add(p.getPowerUpType());
+        }
+
+        return powerUpNames;
     }
-    public bool addPowerUp(PowerUpType p)
+    public bool addPowerUp(PowerUps p)
     {
         if (numPowerUps >= maxPowerUps)
         {
@@ -31,6 +39,7 @@ public class PlayerItems : MonoBehaviour
         {
             playerPowerUps.Enqueue(p);
             numPowerUps++;
+            
         }
 
         return true;
@@ -44,7 +53,9 @@ public class PlayerItems : MonoBehaviour
         }
         else
         {
-            playerPowerUps.Dequeue();
+            PowerUps powerUpUsed = playerPowerUps.Dequeue();
+            Debug.Log("powerUpUsed " + powerUpUsed.getPowerUpType().ToString());
+            powerUpUsed.activatePowerUp(player,enemy);
             //call powerup invojking funct8ion 
             numPowerUps--;
         }

@@ -16,8 +16,10 @@ public class Spray : PowerUps
         
     }
     
-    public override void activatePowerUp()
+    public override void activatePowerUp(string self, string enemy)
     {
+        Debug.Log("activate spray powerup");
+
         // get vector from fly to player
         //inverse vector so it points radially away from player
         //push flies away from player (outside flies get pushed away more closer flies less)

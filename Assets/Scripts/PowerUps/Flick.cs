@@ -16,8 +16,10 @@ public class Flick : PowerUps
         
     }
 
-    public override void activatePowerUp()
+    public override void activatePowerUp(string self, string enemy)
+
     {
+        Debug.Log("activate flick powerup");
         //get a random direction vector to push opponent in 
         //add velocity/force in that direction
         
