@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class EggSpawner : MonoBehaviour
 {
     public GameObject eggPrefab;       // The egg prefab
@@ -12,6 +11,7 @@ public class EggSpawner : MonoBehaviour
     public float spawnRadius = 2.0f;       // Radius to check for existing eggs or power-ups
     public Collider2D[] walls;             // Array of wall colliders to ensure spawn within walls
     public LayerMask itemLayer;            // Layer where items are placed to check for overlap
+    public LayerMask obstacleLayer;        // Layer where obstacles are placed to check for overlap
 
     public int initialEggCount = 3;        // Number of eggs to spawn initially
     public float initialDelay = 1.5f;      // Delay before any spawning starts
@@ -22,43 +22,55 @@ public class EggSpawner : MonoBehaviour
         StartCoroutine(DelayedStart());
     }
 
-    private IEnumerator DelayedStart()
+  private IEnumerator DelayedStart()
+{
+    Debug.Log("DelayedStart called"); // Add this line
+    // Spawn the initial 3 eggs
+    Debug.Log("Spawning initial eggs...");
+    SpawnInitialEggs();
+
+    Debug.Log("Waiting for the initial delay...");
+    yield return new WaitForSeconds(initialDelay);
+
+    Debug.Log("Initial delay over, starting spawning...");
+    StartCoroutine(SpawnEggs());
+    StartCoroutine(SpawnPowerUps());
+}
+private void SpawnInitialEggs()
+{
+    int eggsSpawned = 0;
+    int maxAttempts = 100; // Optional: Max attempts to prevent infinite loops
+
+    while (eggsSpawned < initialEggCount && maxAttempts > 0)
     {
+        Vector2 spawnPosition = GetRandomSpawnPositionWithinWalls();
 
-        // Spawn the initial 3 eggs
-        SpawnInitialEggs();
+        // Visual marker for the spawn attempt (optional, for debugging)
+        Debug.DrawRay(spawnPosition, Vector2.up * 0.2f, Color.red, 5f);
 
-        Debug.Log("Waiting for the initial delay...");
-        // Wait for the initial delay (3 seconds by default)
-        yield return new WaitForSeconds(initialDelay);
+        // Check for overlap with other items or obstacles
+        bool positionValid = !Physics2D.OverlapCircle(spawnPosition, spawnRadius, itemLayer) &&
+                             !Physics2D.OverlapCircle(spawnPosition, spawnRadius, obstacleLayer);
 
-        Debug.Log("Initial delay over, starting spawning...");
-
-        // After spawning the initial eggs, start spawning eggs and power-ups at intervals
-        StartCoroutine(SpawnEggs());
-        StartCoroutine(SpawnPowerUps());
-    }
-
-    private void SpawnInitialEggs()
-    {
-        int eggsSpawned = 0;
-        while (eggsSpawned < initialEggCount)
+        if (positionValid)
         {
-            Vector2 spawnPosition = GetRandomSpawnPositionWithinWalls();
-
-            // Check if there's already an item (egg/powerup) at the spawn position using OverlapCircle
-            if (!Physics2D.OverlapCircle(spawnPosition, spawnRadius, itemLayer))
-            {
-                Debug.Log("Spawning initial egg at position: " + spawnPosition);
-                Instantiate(eggPrefab, spawnPosition, Quaternion.identity);
-                eggsSpawned++;
-            }
-            else
-            {
-                Debug.Log("Overlap detected, trying to spawn egg again...");
-            }
+            Debug.Log("Spawning initial egg at position: " + spawnPosition);
+            Instantiate(eggPrefab, spawnPosition, Quaternion.identity);
+            eggsSpawned++;
         }
+        else
+        {
+            Debug.Log("Overlap detected (item or obstacle), retrying...");
+        }
+
+        maxAttempts--;
     }
+
+    Debug.Log("Total Eggs Spawned: " + eggsSpawned);
+}
+
+
+
 
     private IEnumerator SpawnEggs()
     {
@@ -67,15 +79,16 @@ public class EggSpawner : MonoBehaviour
             yield return new WaitForSeconds(eggSpawnInterval); // Wait for the next egg spawn interval
             Vector2 spawnPosition = GetRandomSpawnPositionWithinWalls();
 
-            // Check if there's already an item (egg/powerup) at the spawn position using OverlapCircle
-            if (!Physics2D.OverlapCircle(spawnPosition, spawnRadius, itemLayer))
+            // Check if there's already an item (egg/powerup) or an obstacle at the spawn position using OverlapCircle
+            if (!Physics2D.OverlapCircle(spawnPosition, spawnRadius, itemLayer) &&
+                !Physics2D.OverlapCircle(spawnPosition, spawnRadius, obstacleLayer)) // Added obstacle check
             {
                 Debug.Log("Spawning egg at position: " + spawnPosition);
                 Instantiate(eggPrefab, spawnPosition, Quaternion.identity);
             }
             else
             {
-                Debug.Log("Overlap detected, skipping egg spawn.");
+                Debug.Log("Overlap detected (item or obstacle), skipping egg spawn.");
             }
         }
     }
@@ -88,8 +101,9 @@ public class EggSpawner : MonoBehaviour
             
             Vector2 spawnPosition = GetRandomSpawnPositionWithinWalls();
 
-            // Check if there's already an item (egg/powerup) at the spawn position using OverlapCircle
-            if (!Physics2D.OverlapCircle(spawnPosition, spawnRadius, itemLayer))
+            // Check if there's already an item (egg/powerup) or an obstacle at the spawn position using OverlapCircle
+            if (!Physics2D.OverlapCircle(spawnPosition, spawnRadius, itemLayer) &&
+                !Physics2D.OverlapCircle(spawnPosition, spawnRadius, obstacleLayer)) // Added obstacle check
             {
                 GameObject powerUp = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
                 Debug.Log("Spawning power-up at position: " + spawnPosition);
@@ -97,7 +111,7 @@ public class EggSpawner : MonoBehaviour
             }
             else
             {
-                Debug.Log("Overlap detected, skipping power-up spawn.");
+                Debug.Log("Overlap detected (item or obstacle), skipping power-up spawn.");
             }
         }
     }
@@ -105,10 +119,13 @@ public class EggSpawner : MonoBehaviour
     Vector2 GetRandomSpawnPositionWithinWalls()
     {
         // Define boundaries within the walls
-        float xMin = walls[0].bounds.min.x - 1.0f;
-        float xMax = walls[1].bounds.max.x + 1.0f;
-        float yMin = walls[2].bounds.min.y  - 1.0f;
-        float yMax = walls[3].bounds.max.y + 1.0f;
+        float xMin = walls[0].bounds.min.x - 6f;
+        float xMax = walls[1].bounds.max.x + 6f;
+        float yMin = walls[2].bounds.min.y - 7.2f;
+        float yMax = walls[3].bounds.max.y + 7.2f;
+
+        Debug.Log("WALL POSITIONS: " + xMin + xMax + yMin + yMax);
+
 
         // Generate random X and Y coordinates within the walls
         float x = Random.Range(xMin, xMax);
