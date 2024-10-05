@@ -33,6 +33,26 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        
         rb.AddForce(movement * speed);
+    }
+    public void DisablePlayerMovement(float duration)
+    {
+        StartCoroutine(DisableMovementCoroutine(duration));
+    }
+
+    private IEnumerator DisableMovementCoroutine(float duration)
+    {
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D is null in DisableMovementCoroutine.");
+            yield break;  // Exit the coroutine if Rigidbody is not assigned
+        }
+        float oldSpeed = speed;
+        speed = 0f;
+        rb.velocity = Vector2.zero;  // Reset velocity immediately
+
+        yield return new WaitForSeconds(duration);
+        speed = oldSpeed;
     }
 }

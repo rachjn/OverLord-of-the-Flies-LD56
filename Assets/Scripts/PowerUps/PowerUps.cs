@@ -8,14 +8,14 @@ public class PowerUps : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] protected PowerUpType powerUpType;
-    protected Transform playerT;
-    protected Transform enemyT;
+    protected GameObject playerT;
+    protected GameObject enemyT;
 
-    public void setPlayerTransform(Transform p)
+    public void setPlayerObject(GameObject p)
     {
         playerT = p;
     }
-    public void setEnemyTransform(Transform e)
+    public void setEnemyObject(GameObject e)
     {
         enemyT = e;
     }
@@ -30,14 +30,18 @@ public class PowerUps : MonoBehaviour
         {
             if (col.GetComponent<PlayerItems>().addPowerUp(this))
             {
-                Destroy(gameObject);  
+                GetComponent<SpriteRenderer>().enabled = false;
+
+                // Disable the collider to stop further interaction
+                GetComponent<Collider2D>().enabled = false;
             }
         }
     }
 
-    public virtual void activatePowerUp(string self, string enemy)
+    public virtual IEnumerator activatePowerUp(string self, string enemy)
     {
         Debug.Log("activating powerup");
+        return null; 
     }
 
     // Update is called once per frame
