@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerFly : FlyBase
+public class PlayerFly : HealthManager
 {
     private void OnCollisionEnter(Collision collision)
     {
-        FlyBase otherFly = collision.gameObject.GetComponent<FlyBase>();
+        HealthManager otherFly = collision.gameObject.GetComponent<HealthManager>();
 
         // Check if we collided with another fly that takes damage
         if (otherFly != null)
