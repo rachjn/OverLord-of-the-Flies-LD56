@@ -1,13 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] protected PowerUpType powerUpType;
+    protected Transform playerT;
+    protected Transform enemyT;
 
+    public void setPlayerTransform(Transform p)
+    {
+        playerT = p;
+    }
+    public void setEnemyTransform(Transform e)
+    {
+        enemyT = e;
+    }
+    
     public PowerUpType getPowerUpType()
     {
         return powerUpType;

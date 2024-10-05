@@ -12,6 +12,7 @@ public class PlayerItems : MonoBehaviour
     private int maxPowerUps = 3;
     [SerializeField] private string player;
     [SerializeField] private string enemy;
+    [SerializeField] private Transform enemyTransform;
     [SerializeField] private int playerControlScheme = 0;
 
     void Start()
@@ -37,6 +38,8 @@ public class PlayerItems : MonoBehaviour
         }
         else
         {
+            p.setPlayerTransform(transform);
+            p.setEnemyTransform(enemyTransform);
             playerPowerUps.Enqueue(p);
             numPowerUps++;
             
