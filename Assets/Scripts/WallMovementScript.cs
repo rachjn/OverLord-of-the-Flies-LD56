@@ -15,7 +15,6 @@ public class WallMovement : MonoBehaviour
     private Vector3 originalBottomWallPosition;
     private Vector3 originalLeftWallPosition;
     private Vector3 originalRightWallPosition;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +23,12 @@ public class WallMovement : MonoBehaviour
         originalBottomWallPosition = bottomWall.position;
         originalLeftWallPosition = leftWall.position;
         originalRightWallPosition = rightWall.position;
+    }
+    
+    private void Rescan()
+    {
+        var graphToScan = AstarPath.active.data.gridGraph;
+        AstarPath.active.Scan(graphToScan);
     }
 
     // Update is called once per frame

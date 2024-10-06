@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 256213769296005973}
   - component: {fileID: 3095508348340581696}
   - component: {fileID: 6913015884873840281}
+  - component: {fileID: 6788904937021897878}
   m_Layer: 0
   m_Name: PlayerFly
   m_TagString: Player
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2230362, y: -1.4462081, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.26065257, y: 0.26065257, z: 0.26065257}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,13 +130,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5522757594338977218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8c41d57162aa46a59213436884b51df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  playerControlScheme: 0
+  sprintMultiplier: 2
+  maxStamina: 3
+  staminaRegen: 1
+  staminaRegenDelay: 2
+  playerControlScheme: 1
 --- !u!50 &6913015884873840281
 Rigidbody2D:
   serializedVersion: 4
@@ -163,3 +168,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6788904937021897878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522757594338977218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8eccc9e494040e38ad3eed36b46fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  driftFactor: 0.9
+  playerControlScheme: 1
+  isStunned: 0

@@ -40,10 +40,26 @@ public class SwarmManager : MonoBehaviour
         get { return Retreating ? idleRadiusBase : 1.5f*(idleRadiusBase + (float)Math.Sqrt(idleRadiusIncRate * SwarmSize)); }
     }
     private Rigidbody2D parentRb;
+    private string team;
+    private string enemyTeam;
 
     // Start is called before the first frame update
     void Start()
     {
+        team = tag;
+        enemyTeam = (CompareTag("Player1")) ? "Player2" : "Player1";
+
+        if (enemySwarm == null)
+        {
+            foreach (var controller in FindObjectsOfType<SwarmManager>())
+            {
+                if (controller.CompareTag(enemyTeam))
+                {
+                    enemySwarm = controller;
+                }
+            }
+        }
+
         parentRb = GetComponentInParent<Rigidbody2D>();
         addFly(transform.parent.gameObject);
         Debug.Log(parentRb);
@@ -70,6 +86,18 @@ public class SwarmManager : MonoBehaviour
     public HashSet<GameObject> GetEnemyFlies()
     {
         return (enemySwarm == null) ? new HashSet<GameObject>() : enemySwarm.Flies;
+    }
+
+    public void OnDestroy()
+    {
+        foreach(var g in GameObject.FindGameObjectsWithTag(enemyTeam))  
+        {
+            Destroy(g);
+        }
+        foreach(var g in GameObject.FindGameObjectsWithTag(team))  
+        {
+            Destroy(g);
+        }
     }
 
     public bool addFly(GameObject fly)

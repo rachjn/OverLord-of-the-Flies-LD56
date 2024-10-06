@@ -119,12 +119,16 @@ private void SpawnInitialEggs()
     Vector2 GetRandomSpawnPositionWithinWalls()
     {
         // Define boundaries within the walls
-        float xMin = walls[0].bounds.min.x - 6f;
-        float xMax = walls[1].bounds.max.x + 6f;
-        float yMin = walls[2].bounds.min.y - 7.2f;
-        float yMax = walls[3].bounds.max.y + 7.2f;
+        // float xMin = walls[0].bounds.min.x - 6f;
+        // float xMax = walls[1].bounds.max.x + 6f;
+        // float yMin = walls[2].bounds.min.y - 7.2f;
+        // float yMax = walls[3].bounds.max.y + 7.2f;
+        float xMin = walls[0].bounds.min.x+1;
+        float xMax = walls[1].bounds.max.x-1;
+        float yMin = walls[2].bounds.min.y+1;
+        float yMax = walls[3].bounds.max.y-1;
 
-        Debug.Log("WALL POSITIONS: " + xMin + xMax + yMin + yMax);
+        // Debug.Log("WALL POSITIONS: " + xMin + xMax + yMin + yMax);
 
 
         // Generate random X and Y coordinates within the walls
