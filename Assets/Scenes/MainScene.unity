@@ -5021,7 +5021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9334d8deb48ce4fc1b306fb4d2e4fc99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shrinkSpeed: 0
+  shrinkSpeed: 0.5
   minSize: {x: 20, y: 10}
   topWall: {fileID: 1964480888}
   bottomWall: {fileID: 201346347}
