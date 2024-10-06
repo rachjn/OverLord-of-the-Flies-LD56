@@ -49,20 +49,15 @@ public class DamageOnTrigger : MonoBehaviour
         while (elapsedShakeTime < shakeDuration)
         {
             elapsedShakeTime += Time.deltaTime;
-            Debug.Log((elapsedShakeTime, shakeDuration));
 
             // Create a horizontal oscillation (left and right)
             float offsetX = Mathf.Sin(elapsedShakeTime * 20f) * shakeMagnitude;
-
-            // Apply the horizontal offset to the X-axis, keep Y and Z unchanged
             enemyTransform.position = new Vector3(originalPosition.x + offsetX, originalPosition.y, originalPosition.z);
 
             // Wait for the next frame
             yield return null;
         }
 
-        // After the shake, reset the position and color back to original
-        Debug.Log("done shaking");
         enemyTransform.position = originalPosition;
         spriteRenderer.color = originalColor;
 

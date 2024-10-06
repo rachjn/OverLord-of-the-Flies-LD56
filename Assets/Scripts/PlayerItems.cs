@@ -14,7 +14,6 @@ public class PlayerItems : MonoBehaviour
     [SerializeField] private string enemy;
     [SerializeField] private GameObject enemyObject;
     [SerializeField] private int playerControlScheme = 0;
-
     void Start()
     {
         playerPowerUps = new Queue<PowerUps>();
@@ -57,9 +56,8 @@ public class PlayerItems : MonoBehaviour
         else
         {
             PowerUps powerUpUsed = playerPowerUps.Dequeue();
-            Debug.Log("powerUpUsed " + powerUpUsed.getPowerUpType().ToString());
 
-            // Check if activatePowerUp is a coroutine and wait for it to finish if it is
+            // Start coroutine to handle the power-up activation
             StartCoroutine(HandlePowerUpActivation(powerUpUsed));
 
             // Reduce the number of power-ups
@@ -69,16 +67,11 @@ public class PlayerItems : MonoBehaviour
 
     private IEnumerator HandlePowerUpActivation(PowerUps powerUpUsed)
     {
-        // Call activatePowerUp and check if it is a coroutine
-        IEnumerator coroutine = powerUpUsed.activatePowerUp(player, enemy);
-
-        if (coroutine != null)
-        {
-            // If it's a coroutine, wait for it to complete
-            yield return StartCoroutine(coroutine);
-        }
+        // Wait for the coroutine to finish, if it's valid
+        yield return StartCoroutine(powerUpUsed.activatePowerUp(player, enemy));
         Destroy(powerUpUsed.gameObject);
     }
+
     // Update is called once per frame
     void Update()
     {
