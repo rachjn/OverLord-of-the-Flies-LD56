@@ -324,6 +324,7 @@ MonoBehaviour:
   - {fileID: -1164368047027863101}
   - {fileID: -2932327444707750933}
   - {fileID: -4306650030955892834}
+  - {fileID: 7996516254951506975}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -374,3 +375,26 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &7996516254951506975
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72369bd9e163d49a3833dceb4c65bbb0, type: 3}
+  m_Name: Playable Video Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
