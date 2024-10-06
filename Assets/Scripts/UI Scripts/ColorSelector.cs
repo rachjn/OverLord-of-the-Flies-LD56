@@ -5,21 +5,13 @@ public class ColorSelector : MonoBehaviour
     // Array of color boxes in the scene
     public GameObject[] colorBoxes;
 
-    // Define the colors you want to cycle through
-    private Color[] colors = new Color[]
-    {
-        new Color(239f / 255f, 78f / 255f, 110f / 255f), // Custom Red (RGB: 239, 78, 110)
-        new Color(246f / 255f, 201f / 255f, 100f / 255f), // Custom Green (RGB: 246, 201, 100)
-        new Color(112f / 255f, 127f / 255f, 235f / 255f), // Custom Blue (RGB: 112, 127, 235)
-        new Color(108f / 255f, 216f / 255f, 106f / 255f), // Custom Yellow (RGB: 108, 216, 106)
-    };
+    // Sprites for the different colors
+    public Sprite[] player1Sprites; // Array for Player 1 color sprites
+    public Sprite[] player2Sprites; // Array for Player 2 color sprites
 
-    // Variables to store selected colors for Player 1 and Player 2
-    public Color player1Color;
-    public Color player2Color;
-
-    private int player1Index = 0; // Index for Player 1's selected color
-    private int player2Index = 1; // Index for Player 2's selected color (default)
+    // Index variables for Player 1 and Player 2
+    private int player1Index = 0; // Index for Player 1's selected sprite
+    private int player2Index = 1; // Index for Player 2's selected sprite (default)
 
     // Sprite renderers for Player 1 and Player 2
     public SpriteRenderer player1SpriteRenderer;
@@ -27,13 +19,9 @@ public class ColorSelector : MonoBehaviour
 
     private void Start()
     {
-        // Set default colors
-        player1Color = colors[player1Index];
-        player2Color = colors[player2Index];
-
-        // Update indicators on start
-        UpdateIndicators();
+        // Set default sprites
         UpdateSpriteColors(); // Set initial sprite colors
+        UpdateIndicators(); // Update indicators on start
     }
 
     private void Update()
@@ -61,35 +49,31 @@ public class ColorSelector : MonoBehaviour
         // Debug output for Player colors
         if (Input.GetKeyDown(KeyCode.Return)) // Enter key
         {
-            Debug.Log($"Player 1 Color: {player1Color}");
-            Debug.Log($"Player 2 Color: {player2Color}");
+            Debug.Log($"Player 1 Index: {player1Index}");
+            Debug.Log($"Player 2 Index: {player2Index}");
         }
     }
 
     private void CyclePlayer1Color(int direction)
     {
-        // Continuously cycle until an available color is found
+        // Continuously cycle until an available sprite is found
         do
         {
-            player1Index = (player1Index + direction + colors.Length) % colors.Length;
-        } while (colors[player1Index] == player2Color); // Skip if it's the same as Player 2's color
+            player1Index = (player1Index + direction + player1Sprites.Length) % player1Sprites.Length;
+        } while (player1Index == player2Index); // Skip if it's the same as Player 2's sprite
 
-        // Assign new color
-        player1Color = colors[player1Index];
         UpdateIndicators();
         UpdateSpriteColors(); // Update Player 1 sprite color
     }
 
     private void CyclePlayer2Color(int direction)
     {
-        // Continuously cycle until an available color is found
+        // Continuously cycle until an available sprite is found
         do
         {
-            player2Index = (player2Index + direction + colors.Length) % colors.Length;
-        } while (colors[player2Index] == player1Color); // Skip if it's the same as Player 1's color
+            player2Index = (player2Index + direction + player2Sprites.Length) % player2Sprites.Length;
+        } while (player2Index == player1Index); // Skip if it's the same as Player 1's sprite
 
-        // Assign new color
-        player2Color = colors[player2Index];
         UpdateIndicators();
         UpdateSpriteColors(); // Update Player 2 sprite color
     }
@@ -107,11 +91,11 @@ public class ColorSelector : MonoBehaviour
             p2Indicator.SetActive(false);
 
             // Activate indicators based on selected colors
-            if (colors[i] == player1Color)
+            if (i == player1Index)
             {
                 p1Indicator.SetActive(true); // Activate Player 1 indicator
             }
-            if (colors[i] == player2Color)
+            if (i == player2Index)
             {
                 p2Indicator.SetActive(true); // Activate Player 2 indicator
             }
@@ -120,8 +104,8 @@ public class ColorSelector : MonoBehaviour
 
     private void UpdateSpriteColors()
     {
-        // Update the sprite colors based on the selected colors
-        player1SpriteRenderer.color = player1Color;
-        player2SpriteRenderer.color = player2Color;
+        // Update the sprite renderers with the currently selected sprites
+        player1SpriteRenderer.sprite = player1Sprites[player1Index];
+        player2SpriteRenderer.sprite = player2Sprites[player2Index];
     }
 }
