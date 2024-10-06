@@ -38,8 +38,8 @@ public class WallMovement : MonoBehaviour
 
         if (Vector2.Distance(topWall.position, bottomWall.position) > minSize.y)
         {
-            topWall.position = Vector3.MoveTowards(topWall.position, originalBottomWallPosition, 0.04f * shrinkSpeed * Time.deltaTime);
-            bottomWall.position = Vector3.MoveTowards(bottomWall.position, originalTopWallPosition, 0.04f * shrinkSpeed * Time.deltaTime);
+            topWall.position = Vector3.MoveTowards(topWall.position, originalBottomWallPosition, 0.02f * shrinkSpeed * Time.deltaTime);
+            bottomWall.position = Vector3.MoveTowards(bottomWall.position, originalTopWallPosition, 0.02f * shrinkSpeed * Time.deltaTime);
         }
     }
 }
