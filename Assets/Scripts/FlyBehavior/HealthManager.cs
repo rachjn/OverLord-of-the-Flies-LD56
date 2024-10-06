@@ -13,7 +13,7 @@ public class HealthManager : MonoBehaviour
     {
         if (dying)
         {
-            graceTimer -= Time.deltaTime;
+            graceTimer -= Time.fixedDeltaTime;
             if (graceTimer < 0)
             {
                 Die();

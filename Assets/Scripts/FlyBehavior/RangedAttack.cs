@@ -15,9 +15,21 @@ public class RangedAttack : MonoBehaviour, IAttack
     private int attackDamage = 1;
     [SerializeField]
     private GameObject projectilePrefab;
+    [SerializeField]
+    private float selfKnockback = 0.01f;
     public bool Ready {get { return attackTimer == 0; }}
 
+    private FlyManager fly;
+
     private float attackTimer = 0;
+
+    public void Start()
+    {
+        if (!TryGetComponent(out fly))
+        {
+            Debug.LogWarning("No FlyManager");
+        }
+    }
     
     public void FixedUpdate()
     {
@@ -31,6 +43,10 @@ public class RangedAttack : MonoBehaviour, IAttack
         HealthManager target = null;
         if (enemyFly.TryGetComponent<HealthManager>(out target))
         {
+            if (selfKnockback != 0)
+            {
+                fly.ReceiveKnockback(-(enemyFly.transform.position - transform.position ) * selfKnockback);
+            }
             attackTimer = AttackTime;
             var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectile.GetComponent<Projectile>().Target = target;
