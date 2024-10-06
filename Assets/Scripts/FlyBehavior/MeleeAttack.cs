@@ -64,9 +64,14 @@ public class MeleeAttack : MonoBehaviour, IAttack
             enemyHealth.TakeDamage(attackDamage);
         }
 
+        Vector3 enemyPosition = enemyFly.transform.position;
         while (attackAnimTimer < AttackAnimTime)
-        {
-            sprite.transform.position = Vector3.Lerp(transform.position, enemyFly.transform.position, 1 - attackAnimTimer / AttackAnimTime);
+        {   
+            if (enemyFly != null)
+            {
+                enemyPosition = enemyFly.transform.position;
+            }
+            sprite.transform.position = Vector3.Lerp(transform.position, enemyPosition, 1 - attackAnimTimer / AttackAnimTime);
             attackAnimTimer += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }

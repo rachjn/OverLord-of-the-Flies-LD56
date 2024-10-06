@@ -26,15 +26,18 @@ public class SwarmManager : MonoBehaviour
         get { return flies.Count; }
     }
 
+    public bool Attacking;
+    public bool Retreating;
+
     [SerializeField]
     public float IdleRadius 
     {
-        get { return idleRadiusBase + idleRadiusIncRate*SwarmSize; }
+        get { return Retreating? idleRadiusBase : idleRadiusBase + (float)Math.Sqrt(idleRadiusIncRate * SwarmSize); }
     }
 
     public float LassoRadius 
     {
-        get { return 2*(idleRadiusBase + idleRadiusIncRate*SwarmSize); }
+        get { return Retreating ? idleRadiusBase : 1.5f*(idleRadiusBase + (float)Math.Sqrt(idleRadiusIncRate * SwarmSize)); }
     }
     private Rigidbody2D parentRb;
 
@@ -49,8 +52,19 @@ public class SwarmManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Attacking)
+        {
+            transform.position = enemySwarm.transform.position;
+        }
+        else if (Retreating)
+        {
+            transform.localPosition = Vector3.zero;
+        }
+        else
+        {
+            transform.localPosition = parentRb.velocity * swarmLookahead;
+        }
         transform.localScale = new Vector3(IdleRadius, IdleRadius, IdleRadius) * 2;
-        transform.localPosition = parentRb.velocity * swarmLookahead;
     }
 
     public HashSet<GameObject> GetEnemyFlies()
