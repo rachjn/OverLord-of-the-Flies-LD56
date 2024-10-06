@@ -45,6 +45,7 @@ public class FlyManager : MonoBehaviour
         if (Vector3.Distance(transform.position, swarmCenter.position) > swarmManager.LassoRadius)
         {
             pather.canMove = true;
+            pather.endReachedDistance = 0.1f;
             pather.destination = swarmCenter.position;
             // hack to disengage more effectively
             repathTime = 2f;
@@ -80,14 +81,19 @@ public class FlyManager : MonoBehaviour
 
             if (enemyFly != null)
             {
-                if (Vector3.Distance(enemyFly.transform.position, transform.position) < attack.AttackRange && attack.Ready)
+                if (Vector3.Distance(enemyFly.transform.position, transform.position) < attack.AttackRange)
                 {
-                    pather.canMove = false;
-                    attack.TryAttack(enemyFly);
+                    // pather.canMove = false;
+                    pather.endReachedDistance = attack.AttackRange;
+                    if (attack.Ready)
+                    {
+                        attack.TryAttack(enemyFly);
+                    }
                 }
                 else 
                 {
-                    pather.canMove = true;
+                    pather.endReachedDistance = 0.1f;
+                    // pather.canMove = true;
                 }
             }
             else if (Vector3.Distance(pather.destination, swarmCenter.position) > swarmManager.IdleRadius || Random.Range(0, 100) < 0.1)

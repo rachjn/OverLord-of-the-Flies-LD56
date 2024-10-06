@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IAttack
 {
+
     public abstract float AttackTime {get; set;}
     public abstract float AttackRange {get; set;}
     public abstract float AttackAnimTime {get; set;}
