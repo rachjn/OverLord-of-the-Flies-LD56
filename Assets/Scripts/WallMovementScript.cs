@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallMovement : MonoBehaviour
 {
-    public float shrinkSpeed = 0.01f; // Speed at which the walls shrink inward
+    public float shrinkSpeed = 0.0f; // Speed at which the walls shrink inward
     public Vector2 minSize = new Vector2(2f, 2f); // The minimum size the walls can shrink to
     public Transform topWall;
     public Transform bottomWall;
