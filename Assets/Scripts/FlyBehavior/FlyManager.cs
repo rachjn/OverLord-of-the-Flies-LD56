@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Assertions;
 using Random=UnityEngine.Random;
 
@@ -12,6 +13,9 @@ public class FlyManager : MonoBehaviour
     private SwarmManager swarmManager;
     [SerializeField]
     private float aggroDistance;
+
+    [SerializeField]
+    public float repathTime = 0.5f;
     private GameObject swarmObject;
     private AIPath pather;
     private Transform swarmCenter;
@@ -19,15 +23,19 @@ public class FlyManager : MonoBehaviour
     private GameObject enemyFly;
     private IAttack attack;
 
-    [SerializeField]
-    public float repathTime = 0.5f;
     private float repathCD;
+    
+    private Rigidbody2D rb;
 
     void Start()
     {
         if (!TryGetComponent(out attack))
         {
             Debug.LogWarning("No attack assigned to fly");
+        }
+        if (!TryGetComponent(out rb))
+        {
+            Debug.LogWarning("No rigidbody assigned to fly");
         }
         pather = GetComponent<AIPath>();
         swarmObject = swarmManager.gameObject;
@@ -103,6 +111,24 @@ public class FlyManager : MonoBehaviour
                 pather.destination = swarmCenter.position + (randOffset * swarmManager.IdleRadius);
             }
         }
+    }
+
+    public void ReceiveKnockback(Vector3 force)
+    {
+        StartCoroutine(doKnockback(force));
+    }
+    private IEnumerator doKnockback(Vector3 force)
+    {
+        yield return null;
+        pather.enabled = false;
+        rb.AddForce(force, ForceMode2D.Impulse);
+
+        float startTime = Time.time;
+        yield return new WaitUntil(() => rb.velocity.magnitude < 0.1f || Time.time - startTime > 0.5f);
+        // yield return new WaitForSeconds(0.25f);
+        rb.velocity = Vector3.zero;
+        pather.enabled = true;
+        yield return null;
     }
 
     void OnDestroy()

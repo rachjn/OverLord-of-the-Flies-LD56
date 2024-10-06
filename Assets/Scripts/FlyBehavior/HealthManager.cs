@@ -13,7 +13,7 @@ public class HealthManager : MonoBehaviour
     {
         if (dying)
         {
-            graceTimer -= Time.deltaTime;
+            graceTimer -= Time.fixedDeltaTime;
             if (graceTimer < 0)
             {
                 Die();
@@ -30,6 +30,7 @@ public class HealthManager : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             dying = true;

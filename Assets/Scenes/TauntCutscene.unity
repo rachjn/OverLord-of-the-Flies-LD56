@@ -264,7 +264,7 @@ PlayableDirector:
   - key: {fileID: -2932327444707750933, guid: 1850e3ddeca5e43bbaf4c8d191a4c93f, type: 2}
     value: {fileID: 1176682847}
   - key: {fileID: -1164368047027863101, guid: 1850e3ddeca5e43bbaf4c8d191a4c93f, type: 2}
-    value: {fileID: 1176682847}
+    value: {fileID: 1500727918}
   - key: {fileID: -4306650030955892834, guid: 1850e3ddeca5e43bbaf4c8d191a4c93f, type: 2}
     value: {fileID: 1176682844}
   - key: {fileID: 7996516254951506975, guid: 1850e3ddeca5e43bbaf4c8d191a4c93f, type: 2}
@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 1176682847}
   - component: {fileID: 1176682848}
   - component: {fileID: 1176682846}
+  - component: {fileID: 1176682850}
   - component: {fileID: 1176682849}
   m_Layer: 0
   m_Name: Fly
@@ -301,11 +302,11 @@ Transform:
   m_GameObject: {fileID: 1176682844}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: -0.18, z: 0}
+  m_LocalPosition: {x: -5.3802013, y: -0.17795287, z: 2.0448742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1500727919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1176682846
 SpriteRenderer:
@@ -327,7 +328,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe6c0341787fc4b8aa1cacbc831ffbba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -418,6 +419,72 @@ PlayableDirector:
   m_ExposedReferences:
     m_References:
     - ab9b88ffc63d947fdb1636f7db0a499d: {fileID: 1757445166}
+--- !u!114 &1176682850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176682844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58845aff15da54dc89705c5d6122d97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1500727917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500727919}
+  - component: {fileID: 1500727918}
+  m_Layer: 0
+  m_Name: FlyParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1500727918
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500727917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55f83cdc6f145439ab26a9144d722809, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &1500727919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500727917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6197985, y: -0.0020471308, z: -2.0448742}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1176682845}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757445166
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,5 +575,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 851223012}
   - {fileID: 1141902965}
-  - {fileID: 1176682845}
   - {fileID: 1757445168}
+  - {fileID: 1500727919}

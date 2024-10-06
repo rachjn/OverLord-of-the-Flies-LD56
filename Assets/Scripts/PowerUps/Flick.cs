@@ -19,7 +19,7 @@ public class Flick : PowerUps
         
     }
 
-    public override void activatePowerUp(string self, string enemy)
+    public override IEnumerator activatePowerUp(string self, string enemy)
 
     {
         Debug.Log("activate flick powerup");
@@ -28,15 +28,16 @@ public class Flick : PowerUps
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag(enemy);
 
         // Loop through all found GameObjects and access their Transform component
-        Vector2 dir = (enemyT.position - playerT.position).normalized;
-        foreach (GameObject enenmyObj in enemyObjects)
+        Vector2 dir = (enemyT.transform.position - playerT.transform.position).normalized;
+        foreach (GameObject enemyObj in enemyObjects)
         {
-            Rigidbody2D enemyRb = enenmyObj.GetComponent<Rigidbody2D>();
+            Rigidbody2D enemyRb = enemyObj.GetComponent<Rigidbody2D>();
             if (enemyRb != null)
             {
                 // Apply a force to the enemy in the direction of 'dir'
                 enemyRb.AddForce(dir * force, ForceMode2D.Impulse);
             }
         }
+        return null; 
     }
 }
