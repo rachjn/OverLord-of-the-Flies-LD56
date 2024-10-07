@@ -4,12 +4,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject creditsPanel;
+    public string sceneToLoad = "PlayerSelect"; // Name of the scene to load
 
     // This function will be called when the Start button is clicked
     public void StartGame()
     {
-        SceneManager.LoadScene("PlayerSelect");  // uncomment for build
         Debug.Log("START!");
+        SceneManager.LoadScene(sceneToLoad);  // uncomment for build
     }
 
     // This function will be called when the Credits button is clicked

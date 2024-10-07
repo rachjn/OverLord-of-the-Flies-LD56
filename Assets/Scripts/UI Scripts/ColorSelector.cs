@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ColorSelector : MonoBehaviour
 {
@@ -51,6 +53,7 @@ public class ColorSelector : MonoBehaviour
         {
             Debug.Log($"Player 1 Index: {player1Index}");
             Debug.Log($"Player 2 Index: {player2Index}");
+            SceneManager.LoadScene("RulesScene");  // uncomment for build
         }
     }
 
