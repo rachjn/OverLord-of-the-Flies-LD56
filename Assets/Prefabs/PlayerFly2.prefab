@@ -61,6 +61,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5789063689887669924, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+      propertyPath: stunAnimation
+      value: 
+      objectReference: {fileID: 5381942687190690469}
+    - target: {fileID: 5789063689887669924, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
       propertyPath: playerControlScheme
       value: 2
       objectReference: {fileID: 0}
@@ -97,3 +101,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+--- !u!1 &5381942687190690469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7673734517820066138, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+  m_PrefabInstance: {fileID: 2363849639030072319}
+  m_PrefabAsset: {fileID: 0}

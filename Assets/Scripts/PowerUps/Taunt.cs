@@ -60,7 +60,7 @@ public class Taunt : PowerUps
         }
 
         // Disable enemy movement for a specified duration
-        enemyT.GetComponent<PlayerMovementTest>().DisablePlayerMovement(stunLength);
+        enemyT.GetComponent<PlayerController>().DisablePlayerMovement(stunLength);
     }
 
     

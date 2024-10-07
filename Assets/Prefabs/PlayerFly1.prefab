@@ -113,6 +113,8 @@ MonoBehaviour:
     m_Bits: 0
   staminaRegenDelay: 2
   playerControlScheme: 1
+  stunAnimation: {fileID: 7673734517820066138}
+  isStunned: 0
 --- !u!50 &8424098732916171150
 Rigidbody2D:
   serializedVersion: 4
@@ -405,5 +407,10 @@ PrefabInstance:
 --- !u!4 &1350447843623938893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4920896083580365295, guid: d336b78cd3cb3490c94f572604d2bdb5, type: 3}
+  m_PrefabInstance: {fileID: 6266558507715035810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7673734517820066138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4362260851577523192, guid: d336b78cd3cb3490c94f572604d2bdb5, type: 3}
   m_PrefabInstance: {fileID: 6266558507715035810}
   m_PrefabAsset: {fileID: 0}

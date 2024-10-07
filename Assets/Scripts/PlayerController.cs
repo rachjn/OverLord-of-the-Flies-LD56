@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
 
     private bool sprinting = false;
     private bool sprintHeld = false;
+    
+    public GameObject stunAnimation; 
+    public bool isStunned = false;
+
 
     void Start()
     {
@@ -36,48 +40,55 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Handle input based on the assigned control scheme
-        if (playerControlScheme == 1)
+        if (!isStunned)
         {
-            movement.x = Input.GetAxisRaw("Horizontal1");
-            movement.y = Input.GetAxisRaw("Vertical1");
+            // Handle input based on the assigned control scheme
+            if (playerControlScheme == 1)
+            {
+                movement.x = Input.GetAxisRaw("Horizontal1");
+                movement.y = Input.GetAxisRaw("Vertical1");
 
-            sprintHeld = Input.GetAxisRaw("Sprint1") > 0;
-            swarm.Attacking = Input.GetAxisRaw("Attack1") > 0;
-            swarm.Retreating = Input.GetAxisRaw("Retreat1") > 0;
-        }
-        else if (playerControlScheme == 2)
-        {
-            movement.x = Input.GetAxisRaw("Horizontal2");
-            movement.y = Input.GetAxisRaw("Vertical2");
+                sprintHeld = Input.GetAxisRaw("Sprint1") > 0;
+                swarm.Attacking = Input.GetAxisRaw("Attack1") > 0;
+                swarm.Retreating = Input.GetAxisRaw("Retreat1") > 0;
+            }
+            else if (playerControlScheme == 2)
+            {
+                movement.x = Input.GetAxisRaw("Horizontal2");
+                movement.y = Input.GetAxisRaw("Vertical2");
 
-            sprintHeld = Input.GetAxisRaw("Sprint2") > 0;
-            swarm.Attacking = Input.GetAxisRaw("Attack2") > 0;
-            swarm.Retreating = Input.GetAxisRaw("Retreat2") > 0;
+                sprintHeld = Input.GetAxisRaw("Sprint2") > 0;
+                swarm.Attacking = Input.GetAxisRaw("Attack2") > 0;
+                swarm.Retreating = Input.GetAxisRaw("Retreat2") > 0;
+            }
         }
+        
     }
 
     void FixedUpdate()
     {
         // rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
-        bool sprinting = false;
-        if (sprintHeld && stamina > 0)
+        if (!isStunned)
         {
-            stamina -= Time.fixedDeltaTime;
-            staminaRegenTimer = staminaRegenDelay;
-            sprinting = true;
-        }
-        else 
-        {
-            staminaRegenTimer = Math.Max(0, staminaRegenTimer - Time.fixedDeltaTime);
-            if (staminaRegenTimer <= 0)
+            bool sprinting = false;
+            if (sprintHeld && stamina > 0)
             {
-                stamina = Math.Clamp(stamina + staminaRegen * Time.deltaTime, 0, maxStamina);
+                stamina -= Time.fixedDeltaTime;
+                staminaRegenTimer = staminaRegenDelay;
+                sprinting = true;
             }
-        }
+            else 
+            {
+                staminaRegenTimer = Math.Max(0, staminaRegenTimer - Time.fixedDeltaTime);
+                if (staminaRegenTimer <= 0)
+                {
+                    stamina = Math.Clamp(stamina + staminaRegen * Time.deltaTime, 0, maxStamina);
+                }
+            }
         
-        Vector2 force = movement * speed * (sprinting ? sprintMultiplier : 1f);
-        rb.AddForce(force);
+            Vector2 force = movement * speed * (sprinting ? sprintMultiplier : 1f);
+            rb.AddForce(force);
+        }
     }
     public void DisablePlayerMovement(float duration)
     {
@@ -86,17 +97,22 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator DisableMovementCoroutine(float duration)
     {
-        if (rb == null)
+        
+        rb.velocity = Vector2.zero;  // Stop movement completely
+        isStunned = true;
+        if (stunAnimation != null)
         {
-            Debug.LogError("Rigidbody2D is null in DisableMovementCoroutine.");
-            yield break;  // Exit the coroutine if Rigidbody is not assigned
+            stunAnimation.SetActive(true);  // Show the stun animation if you're using a GameObject
         }
-        float oldSpeed = speed;
-        speed = 0f;
-        rb.velocity = Vector2.zero;  // Reset velocity immediately
-
         yield return new WaitForSeconds(duration);
-        speed = oldSpeed;
+
+        if (stunAnimation != null)
+        {
+            stunAnimation.SetActive(false);  // Hide the stun animation after the effect
+        }
+
+        isStunned = false;
+
     }
 
     private IEnumerator OpenEggsCoroutine()
