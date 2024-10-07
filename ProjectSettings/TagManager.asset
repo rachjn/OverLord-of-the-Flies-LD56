@@ -17,7 +17,7 @@ TagManager:
   - Obstacles
   - Items
   - Flies
-  - 
+  - Top TOP TOP LAYER
   - 
   - 
   - 
@@ -52,4 +52,10 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 4165106113
+    locked: 0
+  - name: top
+    uniqueID: 3581956545
+    locked: 0
+  - name: even higher
+    uniqueID: 1271662395
     locked: 0

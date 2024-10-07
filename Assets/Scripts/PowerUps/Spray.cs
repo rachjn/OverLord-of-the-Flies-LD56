@@ -97,7 +97,6 @@ public class Spray : PowerUps
     private IEnumerator StayAndSpray(GameObject sprayHand, float sprayDuration, GameObject[] enemyObjects)
     {
         float elapsedTime = 0f;
-        float force = 5f;  // The force used to push enemies away
 
         // Get the particle system from the child object "sprayParticles"
         ParticleSystem particleSystem = sprayHand.GetComponentInChildren<ParticleSystem>();
@@ -120,19 +119,16 @@ public class Spray : PowerUps
             // Push enemies away while the spray hand stays in place
             foreach (GameObject enemyObj in enemyObjects)
             {
-                if (enemyObj.GetComponent<PlayerController>())
+                if (enemyObj == null || enemyObj.GetComponent<PlayerController>())
                 {
                     continue; // Ignore enemy player, only scatter their flies
                 }
 
-                Vector2 displacement = enemyObj.transform.position - sprayHand.transform.position;
-                Vector2 dir = displacement.normalized;
-                float distance = displacement.magnitude;
-                Rigidbody2D enemyRb = enemyObj.GetComponent<Rigidbody2D>();
-                if (enemyRb != null)
+                Vector2 displacement = (enemyObj.transform.position - sprayHand.transform.position).normalized;
+                FlyManager fly;
+                if (enemyObj.TryGetComponent(out fly))
                 {
-                    // Apply a force to the enemy in the direction of 'dir'
-                    enemyRb.AddForce(dir * distance * force * Time.deltaTime, ForceMode2D.Impulse);
+                    fly.ReceiveKnockback(displacement/75f);
                 }
             }
 

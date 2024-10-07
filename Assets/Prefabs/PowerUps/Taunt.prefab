@@ -122,7 +122,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.56, y: 3.01}
+    oldSize: {x: 2.3733332, y: 2.0066667}
     newSize: {x: 1, y: 0.8828125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpType: 2
-  tauntAnimationLength: 2.8
-  stunLength: 2
-  StunEffect: {fileID: 4362260851577523192, guid: d336b78cd3cb3490c94f572604d2bdb5, type: 3}
+  tauntAnimationLength: 3
+  stunLength: 3
+  StunCutScene: {fileID: 599314918399081581, guid: e46a9800bc5ab43db864eeaa0fb5f76a, type: 3}

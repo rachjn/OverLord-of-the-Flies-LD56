@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,8 +10,7 @@ public class Taunt : PowerUps
     // Start is called before the first frame update
     [SerializeField] float tauntAnimationLength;
     [SerializeField] private float stunLength;
-    [SerializeField] private GameObject StunEffect;
-
+    [SerializeField] private GameObject StunCutScene;
     void Start()
     {
         powerUpType = PowerUpType.Taunt;
@@ -23,14 +23,16 @@ public class Taunt : PowerUps
         // Pause game by disabling all objects except Taunt-related objects
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
 
-        foreach (GameObject obj in allObjects)
-        {
-            if (obj.GetComponent<Taunt>())
-            {
-                continue;  // Skip Taunt objects
-            }
-            obj.SetActive(false);  // Disable all other objects
-        }
+        playerT.GetComponent<PlayerController>().DisablePlayerMovement(tauntAnimationLength);
+        enemyT.GetComponent<PlayerController>().DisablePlayerMovement(tauntAnimationLength+stunLength);
+        // foreach (GameObject obj in allObjects)
+        // {
+        //     if (obj.GetComponent<Taunt>())
+        //     {
+        //         continue;  // Skip Taunt objects
+        //     }
+        //     obj.SetActive(false);  // Disable all other objects
+        // }
 
         // Start the cutscene coroutine
         yield return StartCoroutine(handleTauntCutscene(allObjects));
@@ -41,8 +43,8 @@ public class Taunt : PowerUps
         float elapsedTime = 0f;
 
         // Load the cutscene scene additively
-        SceneManager.LoadScene("TauntCutscene", LoadSceneMode.Additive);
-
+        GameObject scene = Instantiate(StunCutScene, Vector2.zero, quaternion.identity);
+        
         // Run the timer for the duration of the taunt animation
         while (elapsedTime < tauntAnimationLength)
         {
@@ -51,16 +53,7 @@ public class Taunt : PowerUps
         }
 
         // Unload the cutscene after the timer is complete
-        SceneManager.UnloadSceneAsync("TauntCutscene");
-
-        // Resume the game by re-enabling all objects
-        foreach (GameObject obj in allObjects)
-        {
-            obj.SetActive(true);  // Re-enable all objects
-        }
-
-        // Disable enemy movement for a specified duration
-        enemyT.GetComponent<PlayerController>().DisablePlayerMovement(stunLength);
+        Destroy(scene);
     }
 
     
