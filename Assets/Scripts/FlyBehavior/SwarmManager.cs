@@ -92,6 +92,9 @@ public class SwarmManager : MonoBehaviour
 
     public void OnDestroy()
     {
+        // when we die, lose the game
+        GameManager.Instance.WinGame(enemyTeam);
+
         foreach(var g in GameObject.FindGameObjectsWithTag(enemyTeam))  
         {
             Destroy(g);

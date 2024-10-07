@@ -39,11 +39,30 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void WinGame(string player)
     {
-        SceneManager.LoadScene("");
+        winner = player;
+        SceneManager.sceneLoaded += OnWinScreen;
+        SceneManager.LoadScene("EndScene");
+    }
+
+    void OnWinScreen(Scene _, LoadSceneMode __)
+    {
+        var winDisplay1 = GameObject.Find("fly1win");
+        var winDisplay2 = GameObject.Find("fly2win");
+        if (winner == "Player1")
+        {
+            winDisplay1.SetActive(true);
+            winDisplay2.SetActive(false);
+        }
+        else 
+        {
+            winDisplay1.SetActive(false);
+            winDisplay2.SetActive(true);
+        }
+        SceneManager.sceneLoaded -= OnWinScreen;
     }
 }
