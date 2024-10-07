@@ -40,12 +40,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene("MainScene");
-        winner = "";
-    }
-
     public void WinGame(string player)
     {
         if (winner == "")

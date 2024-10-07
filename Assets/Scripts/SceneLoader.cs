@@ -22,6 +22,7 @@ public class SceneLoader : MonoBehaviour
             audioManager.PlaySFX(audioManager.metal);
           
             
+            GameManager.Instance.winner = "";
             StartCoroutine(LoadSceneWithDelay(0.1f, "MainScene"));
         }
     }

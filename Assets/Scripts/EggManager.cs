@@ -32,6 +32,7 @@ public class EggManager : MonoBehaviour
     }
     IEnumerator openEgg(string flyTag)
     {
+        yield return null;
         animator.enabled = true;
         GameObject fly = Instantiate(flyToSpawn, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
         fly.layer = spawnLayer;
