@@ -6,6 +6,14 @@ using System.Collections.Generic;
 
 public class ColorSelector : MonoBehaviour
 {
+
+    private Color[] colors = new Color[]
+    {
+        Color.red,    // Color for Box 0
+        Color.yellow,   // Color for Box 3
+        Color.blue,   // Color for Box 1
+        Color.green,  // Color for Box 2
+    };
     // Array of color boxes in the scene
     public GameObject[] colorBoxes;
 
@@ -131,5 +139,8 @@ public class ColorSelector : MonoBehaviour
         // Update the sprite renderers with the currently selected sprites
         player1SpriteRenderer.sprite = player1Sprites[player1Index];
         player2SpriteRenderer.sprite = player2Sprites[player2Index];
+
+        GameManager.Instance.Player1Color = colors[player1Index];
+        GameManager.Instance.Player2Color = colors[player2Index];
     }
 }

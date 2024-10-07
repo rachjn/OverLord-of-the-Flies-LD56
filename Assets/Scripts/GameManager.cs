@@ -9,8 +9,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Color Player1Color
     {
-        get {return GameManager.Instance.player1Color;}
-        set {GameManager.Instance.player1Color = value;}
+        get {
+            Debug.Log(GameManager.Instance.player1Color);
+            return GameManager.Instance.player1Color;
+            }
+        set {
+            Debug.Log(value);
+            GameManager.Instance.player1Color = value;
+            }
     }
     public Color Player2Color
     {
@@ -18,8 +24,8 @@ public class GameManager : MonoBehaviour
         set {GameManager.Instance.player2Color = value;}
     }
     public string winner = "";
-    private Color player1Color;
-    private Color player2Color;
+    private Color player1Color = new Color(0.1f, 0.1f, 0.9f);
+    private Color player2Color = new Color(0.9f, 0.1f, 0.1f);
 
     private void Awake()
     {
@@ -29,11 +35,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
-
-        Player1Color = new Color(0.1f, 0.1f, 0.9f);
-        Player2Color = new Color(0.9f, 0.1f, 0.1f);
-
         DontDestroyOnLoad(gameObject);
     }
 
