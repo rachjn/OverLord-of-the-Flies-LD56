@@ -7,13 +7,14 @@ using System.Collections.Generic;
 public class ColorSelector : MonoBehaviour
 {
 
-    private Color[] colors = new Color[]
-    {
-        Color.red,    // Color for Box 0
-        Color.yellow,   // Color for Box 3
-        Color.blue,   // Color for Box 1
-        Color.green,  // Color for Box 2
-    };
+   private Color[] colors = new Color[]
+{
+    new Color(239f / 255f, 78f / 255f, 111f / 255f),    
+    new Color(246f / 255f, 201f / 255f, 100f / 255f),   
+    new Color(112f / 255f, 127f / 255f, 235f / 255f),   
+    new Color(108f / 255f, 216f / 255f, 106f / 255f)     // Custom Green
+};
+
     // Array of color boxes in the scene
     public GameObject[] colorBoxes;
 

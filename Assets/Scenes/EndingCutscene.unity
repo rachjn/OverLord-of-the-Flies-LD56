@@ -353,11 +353,13 @@ PlayableDirector:
   - key: {fileID: 7996516254951506975, guid: 1850e3ddeca5e43bbaf4c8d191a4c93f, type: 2}
     value: {fileID: 0}
   - key: {fileID: 1864638952978565957, guid: 95f6a3fc51ce8448d859b5edafebc482, type: 2}
-    value: {fileID: 445007816}
+    value: {fileID: 0}
   - key: {fileID: 531304895628854870, guid: 95f6a3fc51ce8448d859b5edafebc482, type: 2}
     value: {fileID: 656753510}
   - key: {fileID: 2779463897628187648, guid: 95f6a3fc51ce8448d859b5edafebc482, type: 2}
     value: {fileID: 445007815}
+  - key: {fileID: -4932607816109315690, guid: 95f6a3fc51ce8448d859b5edafebc482, type: 2}
+    value: {fileID: 800837341}
   m_ExposedReferences:
     m_References:
     - 1308f724f91e947779071c78a60e0eb6: {fileID: 0}
@@ -483,6 +485,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &800837341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800837343}
+  - component: {fileID: 800837344}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &800837343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800837341}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.3609412, y: -0.32746863, z: -2.041133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &800837344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800837341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138942df2a65e4c8f91b6fe762c1c321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &875474577
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,3 +808,4 @@ SceneRoots:
   - {fileID: 445007817}
   - {fileID: 656753509}
   - {fileID: 259761799}
+  - {fileID: 800837343}
