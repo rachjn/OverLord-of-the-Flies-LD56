@@ -31,7 +31,7 @@ public class EggManager : MonoBehaviour
     IEnumerator openEgg(string flyTag)
     {
         animator.enabled = true;
-        GameObject fly = Instantiate(flyToSpawn, transform.position + (Vector3.up * 0.25f), quaternion.EulerXYZ(-90, 0, 0));
+        GameObject fly = Instantiate(flyToSpawn, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
         animator.Play(openClip);
         fly.tag = flyTag;
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 0.2f);
