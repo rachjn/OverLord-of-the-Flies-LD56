@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpType: 3
   growDuration: 1.5
-  finalScale: {x: 5, y: 5, z: 1}
-  startDrop: 0
-  circlePrefab: {fileID: 8251466630233943541, guid: 7a2863811412048f69cedbf616acea62, type: 3}
+  finalScale: {x: 2.5, y: 2.5, z: 1}
+  dropPrefab: {fileID: 8251466630233943541, guid: 7a2863811412048f69cedbf616acea62, type: 3}
+  stompHandPrefab: {fileID: 7569435623664126605, guid: 9e0527019e6484466978119a85be3633, type: 3}
+  fallDuration: 0.2

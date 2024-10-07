@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageOnTrigger : MonoBehaviour
@@ -7,25 +8,30 @@ public class DamageOnTrigger : MonoBehaviour
     private bool damageApplied = false;  // Ensure damage is applied once
 
     // This will be called when the enemy enters the circle trigger
+    private HashSet<Collider2D> damagedObjects = new HashSet<Collider2D>();
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the object has the enemy tag and hasn't been damaged yet
-        if (!damageApplied && other.CompareTag(enemyTag))
+        if (!damagedObjects.Contains(other) && other.CompareTag(enemyTag))
         {
             // Apply damage to the enemy's HealthManager component
             HealthManager healthManager = other.GetComponent<HealthManager>();
             if (healthManager != null)
             {
                 healthManager.TakeDamage(1f);  // Apply 1 damage (adjust as needed)
-                StartCoroutine(ShakeAndTurnRed(other.gameObject));
+
+                // Add the object to the HashSet to ensure it's not damaged again
+                damagedObjects.Add(other);
             }
         }
     }
 
+
     // This can be called once the circle is fully grown
-    public void EnableDamage()
+    public void disableDamage()
     {
-        damageApplied = false;  // Reset flag so damage can be applied when the circle grows
+        damageApplied = true;  // Reset flag so damage can be applied when the circle grows
     }
     
     private IEnumerator ShakeAndTurnRed(GameObject enemyObj)
