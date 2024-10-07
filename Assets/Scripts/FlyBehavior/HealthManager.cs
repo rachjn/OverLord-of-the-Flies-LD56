@@ -1,21 +1,34 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-
-    public float maxHealth;          // Starting health, customizable for each fly
-    public float graceTimer = 0.25f; // small delay before death
+    public float maxHealth;            // Starting health
+    public float graceTimer = 0.25f;   // Delay before death
     private bool dying = false;
+    private float currentHealth;
+
+     public float CurrentHealth    // Public property to access current health
+    {
+        get { return currentHealth; }
+    }
+
+    // public HealthBar healthBar; // Reference to the HealthBar script for Player 1
+    // public HealthBar healthBar2; // Reference to the HealthBar script for Player 2 (if needed)
+
     AudioManager audioManager;
 
-    // private void Awake()
-    // {
-    //     audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    protected virtual void Start()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        currentHealth = maxHealth;  // Set initial health
 
-    // }
-
-    protected float currentHealth;
+        // // Initialize the health bar UI
+        // healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        // if (healthBar2 != null)
+        // {
+        //     healthBar2.UpdateHealthBar(currentHealth, maxHealth);
+        // }
+    }
 
     void FixedUpdate()
     {
@@ -27,20 +40,20 @@ public class HealthManager : MonoBehaviour
                 Die();
             }
         }
-
-    }
-    
-    protected virtual void Start()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        currentHealth = maxHealth;  // Set initial health when the fly spawns
     }
 
     public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
         Debug.Log(currentHealth);
-        // audioManager.PlaySFX(audioManager.hit);
+
+        // // Update the health bar UI
+        // healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        // if (healthBar2 != null)
+        // {
+        //     healthBar2.UpdateHealthBar(currentHealth, maxHealth);
+        // }
+
         if (currentHealth <= 0)
         {
             dying = true;
@@ -51,6 +64,6 @@ public class HealthManager : MonoBehaviour
     {
         Debug.Log(gameObject.name + " died!");
         audioManager.PlaySFX(audioManager.die);
-        Destroy(gameObject);  // Remove the fly from the game
+        Destroy(gameObject);  // Remove the player from the game
     }
 }
