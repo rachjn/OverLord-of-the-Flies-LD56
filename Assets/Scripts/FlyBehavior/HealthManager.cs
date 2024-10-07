@@ -3,9 +3,17 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
+
     public float maxHealth;          // Starting health, customizable for each fly
     public float graceTimer = 0.25f; // small delay before death
     private bool dying = false;
+    AudioManager audioManager;
+
+    // private void Awake()
+    // {
+    //     audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+    // }
 
     protected float currentHealth;
 
@@ -24,6 +32,7 @@ public class HealthManager : MonoBehaviour
     
     protected virtual void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         currentHealth = maxHealth;  // Set initial health when the fly spawns
     }
 
@@ -31,6 +40,7 @@ public class HealthManager : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log(currentHealth);
+        // audioManager.PlaySFX(audioManager.hit);
         if (currentHealth <= 0)
         {
             dying = true;
@@ -40,6 +50,7 @@ public class HealthManager : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log(gameObject.name + " died!");
+        audioManager.PlaySFX(audioManager.die);
         Destroy(gameObject);  // Remove the fly from the game
     }
 }
