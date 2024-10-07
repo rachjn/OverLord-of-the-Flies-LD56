@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float sprintMultiplier = 2f;
     public float maxStamina = 3f; 
     public float staminaRegen = 1f;
+    public LayerMask itemLayer;
     public float staminaRegenDelay = 2f;
     public int playerControlScheme;
 
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(OpenEggsCoroutine());
         swarm = GetComponentInChildren<SwarmManager>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -92,5 +94,24 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
         speed = oldSpeed;
+    }
+
+    private IEnumerator OpenEggsCoroutine()
+    {
+        while (true)
+        {
+            var items = Physics2D.OverlapCircleAll(transform.position, 1.5f, itemLayer);
+            EggManager egg = null;
+            Debug.Log(items.Length);
+            foreach (Collider2D item in items)
+            {
+                egg = null;
+                if (item.gameObject.TryGetComponent(out egg))
+                {
+                    egg.OpenEgg(tag);
+                }
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 }

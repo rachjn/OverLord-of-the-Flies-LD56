@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -34,6 +35,6 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
         Debug.Log(transform);
-        transform.position = Vector3.Lerp(lerpStart, Target.transform.position, lerpTimer/lerpDuration);
+        transform.position = Vector3.Lerp(lerpStart, Target.transform.position, lerpTimer/lerpDuration) + Vector3.up * (float) Math.Sin(Math.PI * lerpTimer / lerpDuration);
     }
 }

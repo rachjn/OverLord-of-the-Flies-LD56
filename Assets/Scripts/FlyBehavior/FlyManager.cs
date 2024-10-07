@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Pathfinding;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
@@ -38,6 +40,17 @@ public class FlyManager : MonoBehaviour
             Debug.LogWarning("No rigidbody assigned to fly");
         }
         pather = GetComponent<AIPath>();
+        if (swarmManager == null)
+        {
+            // jank
+            if (tag == "Player1" && tag != "Player2") tag = "Player1";
+            // look for owner
+            swarmManager = FindObjectsOfType<SwarmManager>().FirstOrDefault((s)=>s.tag == tag);
+            if (swarmObject == null)
+            {
+                Debug.LogWarning("No valid swarm owner");
+            }
+        }
         swarmObject = swarmManager.gameObject;
         swarmManager.addFly(gameObject);
         enemyFly = null;

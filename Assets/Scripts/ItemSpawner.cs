@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class EggSpawner : MonoBehaviour
 {
-    public GameObject eggPrefab;       // The egg prefab
+   [System.Serializable]
+    public struct SpawnRule { public GameObject Prefab; public float Weight; } 
     public GameObject[] powerUpPrefabs; // Array to hold different power-up prefabs
+    public SpawnRule[] eggSpawnRules;
     public float powerUpSpawnInterval = 5.0f; // Time between power-up spawns
-
     public float eggSpawnInterval = 2.0f;  // Time interval between egg spawns
     public float spawnRadius = 2.0f;       // Radius to check for existing eggs or power-ups
     public Collider2D[] walls;             // Array of wall colliders to ensure spawn within walls
@@ -55,7 +57,7 @@ private void SpawnInitialEggs()
         if (positionValid)
         {
             Debug.Log("Spawning initial egg at position: " + spawnPosition);
-            Instantiate(eggPrefab, spawnPosition, Quaternion.identity);
+            makeRandomEgg(spawnPosition);
             eggsSpawned++;
         }
         else
@@ -69,8 +71,26 @@ private void SpawnInitialEggs()
     Debug.Log("Total Eggs Spawned: " + eggsSpawned);
 }
 
-
-
+    private void makeRandomEgg(Vector2 spawnPosition)
+    {
+        var thing = Random.value;
+        GameObject picked = null;
+        foreach (var rule in eggSpawnRules)
+        {
+            var prefab = rule.Prefab;
+            var weight = rule.Weight;
+            if (thing <= weight)
+            {
+                picked = prefab;
+                break;
+            }
+            thing -= weight;
+        }
+        if (picked != null)
+        {
+            var egg = Instantiate(picked, spawnPosition, Quaternion.identity);
+        }
+    }
 
     private IEnumerator SpawnEggs()
     {
@@ -84,7 +104,7 @@ private void SpawnInitialEggs()
                 !Physics2D.OverlapCircle(spawnPosition, spawnRadius, obstacleLayer)) // Added obstacle check
             {
                 Debug.Log("Spawning egg at position: " + spawnPosition);
-                Instantiate(eggPrefab, spawnPosition, Quaternion.identity);
+                makeRandomEgg(spawnPosition);
             }
             else
             {
@@ -119,12 +139,16 @@ private void SpawnInitialEggs()
     Vector2 GetRandomSpawnPositionWithinWalls()
     {
         // Define boundaries within the walls
-        float xMin = walls[0].bounds.min.x - 6f;
-        float xMax = walls[1].bounds.max.x + 6f;
-        float yMin = walls[2].bounds.min.y - 7.2f;
-        float yMax = walls[3].bounds.max.y + 7.2f;
+        // float xMin = walls[0].bounds.min.x - 6f;
+        // float xMax = walls[1].bounds.max.x + 6f;
+        // float yMin = walls[2].bounds.min.y - 7.2f;
+        // float yMax = walls[3].bounds.max.y + 7.2f;
+        float xMin = walls[0].bounds.min.x+1;
+        float xMax = walls[1].bounds.max.x-1;
+        float yMin = walls[2].bounds.min.y+1;
+        float yMax = walls[3].bounds.max.y-1;
 
-        Debug.Log("WALL POSITIONS: " + xMin + xMax + yMin + yMax);
+        // Debug.Log("WALL POSITIONS: " + xMin + xMax + yMin + yMax);
 
 
         // Generate random X and Y coordinates within the walls
