@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip hit;
     public AudioClip pickUp;
     public AudioClip cheer;
+    public AudioClip metal;
 
     public float sfxVolume = 1.0f; // Default volume (1.0 = max volume, 0.0 = min)
 

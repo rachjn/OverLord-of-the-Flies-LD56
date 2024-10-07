@@ -970,6 +970,7 @@ MonoBehaviour:
   hit: {fileID: 8300000, guid: b9cfd19ad95614b55b4879bcbbb49a46, type: 3}
   pickUp: {fileID: 8300000, guid: c8551c1386606429295b4577971e1118, type: 3}
   cheer: {fileID: 0}
+  metal: {fileID: 8300000, guid: f46605f7d18af41058f46076eb3fd795, type: 3}
   sfxVolume: 1
 --- !u!4 &1800565504
 Transform:

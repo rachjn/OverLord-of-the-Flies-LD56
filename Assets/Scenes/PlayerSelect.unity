@@ -2024,8 +2024,9 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 5e8a131f7432c481f8712caa3aa94fbb, type: 3}
   background: {fileID: 8300000, guid: cbe7d26077939488380557d5ee97b19b, type: 3}
   hit: {fileID: 8300000, guid: b9cfd19ad95614b55b4879bcbbb49a46, type: 3}
-  pickUp: {fileID: 8300000, guid: c8551c1386606429295b4577971e1118, type: 3}
+  pickUp: {fileID: 8300000, guid: 1873dd36ab2a04b76b73ede04e9c4a6b, type: 3}
   cheer: {fileID: 0}
+  metal: {fileID: 8300000, guid: f46605f7d18af41058f46076eb3fd795, type: 3}
   sfxVolume: 1
 --- !u!4 &1909819234
 Transform:

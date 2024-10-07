@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 
 public class ColorSelector : MonoBehaviour
@@ -57,13 +59,23 @@ public class ColorSelector : MonoBehaviour
             CyclePlayer2Color(1);
         }
 
-        // Debug output for Player colors
+         // Debug output for Player colors
         if (Input.GetKeyDown(KeyCode.Return)) // Enter key
         {
+            audioManager.PlaySFX(audioManager.metal);
             Debug.Log($"Player 1 Index: {player1Index}");
             Debug.Log($"Player 2 Index: {player2Index}");
-            SceneManager.LoadScene("RulesScene");  // uncomment for build
+            
+            // Delay scene load by 1 second
+            StartCoroutine(LoadSceneWithDelay(0.5f, "RulesScene"));
         }
+    }
+
+       // Coroutine to delay scene transition
+    IEnumerator LoadSceneWithDelay(float delay, string sceneName)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        SceneManager.LoadScene(sceneName);      // Load the next scene
     }
 
     private void CyclePlayer1Color(int direction)
