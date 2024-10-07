@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         {
             winner = player;
             SceneManager.sceneLoaded += OnWinScreen;
-            SceneManager.LoadScene("EndScene");
+            SceneManager.LoadScene("EndingCutscene");
         }
     }
 
@@ -66,14 +66,14 @@ public class GameManager : MonoBehaviour
             if (winner == "Player1")
             {
                 paperSprite.color = player1Color;
-                winDisplay1.SetActive(false);
-                winDisplay2.SetActive(true);
+                winDisplay1.SetActive(true);
+                winDisplay2.SetActive(false);
             }
             else 
             {
                 paperSprite.color = player2Color;
-                winDisplay1.SetActive(true);
-                winDisplay2.SetActive(false);
+                winDisplay1.SetActive(false);
+                winDisplay2.SetActive(true);
             }
         }
         SceneManager.sceneLoaded -= OnWinScreen;
