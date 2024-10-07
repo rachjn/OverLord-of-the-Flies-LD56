@@ -1157,6 +1157,10 @@ PrefabInstance:
       propertyPath: force
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 8296046814694551465, guid: 27128a9f6b9ed464db211bfe54b50f1c, type: 3}
+      propertyPath: sprayHandPrefab
+      value: 
+      objectReference: {fileID: 7569435623664126605, guid: 49b3d09e82dcc4232b54096b2062eb5e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7866,11 +7870,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7999495821452751184, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7999495821452751184, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7999495821452751184, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8004,11 +8008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6461670291344289732, guid: 5b547bacefa2a45d387e2dfa4dc642b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.8576
+      value: -4.96
       objectReference: {fileID: 0}
     - target: {fileID: 6461670291344289732, guid: 5b547bacefa2a45d387e2dfa4dc642b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.1378
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 6461670291344289732, guid: 5b547bacefa2a45d387e2dfa4dc642b9, type: 3}
       propertyPath: m_LocalPosition.z
