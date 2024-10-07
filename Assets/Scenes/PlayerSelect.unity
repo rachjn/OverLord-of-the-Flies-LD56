@@ -2022,9 +2022,11 @@ MonoBehaviour:
   musicSource: {fileID: 176142102}
   sfxSource: {fileID: 159780274}
   die: {fileID: 8300000, guid: 5e8a131f7432c481f8712caa3aa94fbb, type: 3}
-  background: {fileID: 8300000, guid: fade147c120774edf94a6f6603f87390, type: 3}
+  background: {fileID: 8300000, guid: cbe7d26077939488380557d5ee97b19b, type: 3}
   hit: {fileID: 8300000, guid: b9cfd19ad95614b55b4879bcbbb49a46, type: 3}
   pickUp: {fileID: 8300000, guid: c8551c1386606429295b4577971e1118, type: 3}
+  cheer: {fileID: 0}
+  sfxVolume: 1
 --- !u!4 &1909819234
 Transform:
   m_ObjectHideFlags: 0
