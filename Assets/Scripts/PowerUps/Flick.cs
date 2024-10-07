@@ -49,12 +49,9 @@ public class Flick : PowerUps
         // Step 2: Check if the enemy is to the right of the player and flip the flickPrefab
         if (enemyPosition.x > playerT.position.x)
         {
-            // Enemy is to the right of the player, flip the X scale of the flickPrefab
             flickObject.transform.localScale = new Vector3(-flickObject.transform.localScale.x, flickObject.transform.localScale.y, flickObject.transform.localScale.z);
         }
-        // Otherwise, no need to flip, it flicks to the right by default
 
-        // Step 3: Move the flick object toward the enemy's position
         yield return StartCoroutine(MoveFlick(flickObject, flickStartPosition, enemyPosition));
 
         // Step 4: Play flick animation (assumed to be handled via Animator on flickPrefab)

@@ -30,10 +30,8 @@ public class Spray : PowerUps
         // Find the spray hand in the scene (assuming it's part of the player or an already assigned GameObject)
         GameObject sprayHand = Instantiate(sprayHandPrefab, sprayStartPosition, Quaternion.identity);  // Adjust this based on your hierarchy
 
-        // Disable player and enemy movement
         enemyT.GetComponent<PlayerController>().DisablePlayerMovement(2.5f);
-        playerT.GetComponent<PlayerController>().DisablePlayerMovement(2.5f);
-
+        
         // Call the spray animation coroutine and wait for it to finish
         yield return StartCoroutine(MoveAndShake(sprayHand, sprayStartPosition, enemyPosition));
 
@@ -43,9 +41,6 @@ public class Spray : PowerUps
         float sprayDuration = 1f; // Duration the spray will last
         yield return StartCoroutine(StayAndSpray(sprayHand, sprayDuration, enemyObjects));
 
-        // Enable player and enemy movement again
-
-        // Destroy the spray hand after the spray completes
         Destroy(sprayHand);
 
         yield break;
