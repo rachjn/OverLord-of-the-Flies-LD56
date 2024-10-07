@@ -22,8 +22,7 @@ public class SceneLoader : MonoBehaviour
             audioManager.PlaySFX(audioManager.metal);
           
             
-            // Delay scene load by 1 second
-            StartCoroutine(LoadSceneWithDelay(0.5f, "MainScene"));
+            StartCoroutine(LoadSceneWithDelay(0.1f, "MainScene"));
         }
     }
 
@@ -38,8 +37,7 @@ public class SceneLoader : MonoBehaviour
         // Load scene when sprite is clicked
        audioManager.PlaySFX(audioManager.metal);
             
-            // Delay scene load by 1 second
-            StartCoroutine(LoadSceneWithDelay(0.5f, "MainScene"));
+            StartCoroutine(LoadSceneWithDelay(0.1f, "MainScene"));
     }
 
     private void LoadNextScene()

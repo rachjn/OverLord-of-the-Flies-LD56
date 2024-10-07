@@ -76,7 +76,7 @@ public class ColorSelector : MonoBehaviour
             Debug.Log($"Player 2 Index: {player2Index}");
             
             // Delay scene load by 1 second
-            StartCoroutine(LoadSceneWithDelay(0.5f, "RulesScene"));
+            StartCoroutine(LoadSceneWithDelay(0.1f, "RulesScene"));
         }
     }
 

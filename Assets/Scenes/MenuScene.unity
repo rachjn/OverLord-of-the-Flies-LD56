@@ -1946,11 +1946,7 @@ MonoBehaviour:
   hit: {fileID: 8300000, guid: b9cfd19ad95614b55b4879bcbbb49a46, type: 3}
   pickUp: {fileID: 8300000, guid: 1873dd36ab2a04b76b73ede04e9c4a6b, type: 3}
   cheer: {fileID: 0}
-<<<<<<< Updated upstream
-  metal: {fileID: 0}
-=======
   metal: {fileID: 8300000, guid: f46605f7d18af41058f46076eb3fd795, type: 3}
->>>>>>> Stashed changes
   sfxVolume: 1
 --- !u!4 &1248232842
 Transform:
