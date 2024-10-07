@@ -12,6 +12,10 @@ public class HealthManager : MonoBehaviour
         get { return currentHealth; }
     }
 
+      // Add references to Player1 and Player2
+    [SerializeField] private GameObject player1;
+    [SerializeField] private GameObject player2;
+
     // public HealthBar healthBar; // Reference to the HealthBar script for Player 1
     // public HealthBar healthBar2; // Reference to the HealthBar script for Player 2 (if needed)
 
@@ -52,6 +56,18 @@ public class HealthManager : MonoBehaviour
         // if (healthBar2 != null)
         // {
         //     healthBar2.UpdateHealthBar(currentHealth, maxHealth);
+        // }
+
+            // Play SFX only if this object is Player1 or Player2
+        if (gameObject == player1 || gameObject == player2)
+        {
+            audioManager.PlaySFX(audioManager.hit, 1.4f);  // Replace "hit" with your damage sound effect
+        }
+
+        //    Play SFX only if this object is Player1 or Player2
+        // if (CompareTag("Player1") || CompareTag("Player2"))
+        // {
+        //     audioManager.PlaySFX(audioManager.hit, 1.4f);  // Replace "hit" with your damage sound effect
         // }
 
         if (currentHealth <= 0)

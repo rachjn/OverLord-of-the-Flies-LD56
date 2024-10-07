@@ -19,17 +19,42 @@ public class AudioManager : MonoBehaviour
     public AudioClip pickUp;
     public AudioClip cheer;
     public AudioClip metal;
+     public bool playMusicOnStart = true; 
+    //  public bool playMusicOnStart = true; 
 
     public float sfxVolume = 1.0f; // Default volume (1.0 = max volume, 0.0 = min)
 
+
+    private void Awake()
+    {
+        if (!playMusicOnStart)
+        {
+            musicSource.loop = true;
+            musicSource.clip = background;
+            musicSource.Play();
+        }
+    }
     private void Start()
     {
-        // Set background music to loop
-        musicSource.loop = true; // Enable looping
+        // Only play music if the flag is true
+        if (playMusicOnStart)
+        {
+            musicSource.loop = true;
+            musicSource.clip = background;
+            musicSource.Play();
+        }
+    }
 
-        // Set the background clip and play it
-        musicSource.clip = background;
-        musicSource.Play();
+
+    public void PlayMusic()
+    {
+        // Method to manually play music, for example, in the Menu scene
+        if (!musicSource.isPlaying)
+        {
+            musicSource.loop = true;
+            musicSource.clip = background;
+            musicSource.Play();
+        }
     }
 
     public void PlaySFX(AudioClip clip, float volume = 1.0f)

@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     protected virtual void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager.playMusicOnStart = false;
+        audioManager.PlayMusic();
     }
     
 
