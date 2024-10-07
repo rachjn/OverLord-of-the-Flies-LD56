@@ -3589,11 +3589,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 2ac235e21dea941b1a5cfb718fa091e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.30842778
+      value: -1.33
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 2ac235e21dea941b1a5cfb718fa091e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.534307
+      value: 1.99
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 2ac235e21dea941b1a5cfb718fa091e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4677,19 +4677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 27128a9f6b9ed464db211bfe54b50f1c, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
-      value: 1.31
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 27128a9f6b9ed464db211bfe54b50f1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.11
-=======
-      value: -0.4899999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1757965307571387783, guid: 27128a9f6b9ed464db211bfe54b50f1c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.37
->>>>>>> Stashed changes
+      value: -2.31
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 27128a9f6b9ed464db211bfe54b50f1c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4742,11 +4734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 41e2d612247b04e1bb8972df93472059, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.93
+      value: -2.09
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 41e2d612247b04e1bb8972df93472059, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 41e2d612247b04e1bb8972df93472059, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7185,11 +7177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 215579c1a7bc0423f8e68aa1350477ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3058634
+      value: 2.39
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 215579c1a7bc0423f8e68aa1350477ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2313125
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1757965307571387783, guid: 215579c1a7bc0423f8e68aa1350477ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9032,8 +9024,5 @@ SceneRoots:
   - {fileID: 754311692}
   - {fileID: 503485870}
   - {fileID: 711076870}
-<<<<<<< Updated upstream
   - {fileID: 1571077767}
-=======
   - {fileID: 98138214}
->>>>>>> Stashed changes
