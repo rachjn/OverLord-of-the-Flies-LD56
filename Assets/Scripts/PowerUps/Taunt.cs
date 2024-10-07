@@ -52,7 +52,6 @@ public class Taunt : PowerUps
 
         // Unload the cutscene after the timer is complete
         SceneManager.UnloadSceneAsync("TauntCutscene");
-        Debug.Log("animation Over");
 
         // Resume the game by re-enabling all objects
         foreach (GameObject obj in allObjects)

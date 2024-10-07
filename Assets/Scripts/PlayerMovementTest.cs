@@ -69,14 +69,12 @@ public class PlayerMovementTest : MonoBehaviour
         
         rb.velocity = Vector2.zero;  // Stop movement completely
         isStunned = true;
-        Debug.Log(stunAnimation!=null);
         if (stunAnimation != null)
         {
             stunAnimation.SetActive(true);  // Show the stun animation if you're using a GameObject
         }
         yield return new WaitForSeconds(duration);
 
-        Debug.Log("reactivate mobement ");
         if (stunAnimation != null)
         {
             stunAnimation.SetActive(false);  // Hide the stun animation after the effect

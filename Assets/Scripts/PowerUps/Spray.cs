@@ -34,14 +34,12 @@ public class Spray : PowerUps
         {
             if (enemyObj.GetComponent<PlayerController>())
             {
-                Debug.Log("enemyPlayer");
                 continue; //ignore enemy player, only scatter their flies
             }
 
             Vector2 displacement = enemyObj.transform.position - enemyT.transform.position;
             Vector2 dir = displacement.normalized;
             float distance = displacement.magnitude;
-            Debug.Log((dir, distance,displacement));
             Rigidbody2D enemyRb = enemyObj.GetComponent<Rigidbody2D>();
             if (enemyRb != null)
             {
