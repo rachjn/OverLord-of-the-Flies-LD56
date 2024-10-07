@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3315851493794974029}
   - component: {fileID: 7030029771441708063}
   - component: {fileID: 8638274193897162754}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyToSpawn: {fileID: 8222329589502458251, guid: 6fa2833390425cb4e8c814bd41d0dfb7, type: 3}
+  openClip: eggOpen
 --- !u!95 &8638274193897162754
 Animator:
   serializedVersion: 5

@@ -70,4 +70,5 @@ public class PlayerMovementTest : MonoBehaviour
         yield return new WaitForSeconds(duration);
         speed = oldSpeed;
     }
+
 }

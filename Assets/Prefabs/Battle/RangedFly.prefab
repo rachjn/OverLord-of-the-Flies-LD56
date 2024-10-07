@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8666399579925890005}
   - component: {fileID: 8102630399353694053}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlyRenderer
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 8804132280166924567}
   - component: {fileID: 6419675812064184211}
   - component: {fileID: 5844924742797837784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RangedFly
   m_TagString: Untagged
   m_Icon: {fileID: 0}

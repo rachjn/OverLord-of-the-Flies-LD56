@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rangedEgg Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5255005686184903379, guid: 743edab61f130dc4dac9e5e2f7ab078d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5496715702335853551, guid: 743edab61f130dc4dac9e5e2f7ab078d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.59
