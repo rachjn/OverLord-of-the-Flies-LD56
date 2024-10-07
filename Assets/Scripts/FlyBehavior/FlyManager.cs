@@ -54,6 +54,9 @@ public class FlyManager : MonoBehaviour
         swarmObject = swarmManager.gameObject;
         swarmManager.addFly(gameObject);
         enemyFly = null;
+
+        var color = (tag == "Player1") ? GameManager.Instance.Player1Color : GameManager.Instance.Player2Color;
+        GetComponentInChildren<SpriteRenderer>().color = color;
     }
 
     // Update is called once per frame

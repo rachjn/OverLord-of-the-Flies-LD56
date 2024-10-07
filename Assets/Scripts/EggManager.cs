@@ -34,6 +34,7 @@ public class EggManager : MonoBehaviour
         GameObject fly = Instantiate(flyToSpawn, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
         animator.Play(openClip);
         fly.tag = flyTag;
+
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 0.2f);
         Destroy(gameObject);
     }

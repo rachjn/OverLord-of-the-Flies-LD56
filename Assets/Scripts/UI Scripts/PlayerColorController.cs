@@ -60,6 +60,8 @@ public class PlayerColorController : MonoBehaviour
     {
         // Update the sprite renderers to the selected colors
         player1SpriteRenderer.color = colors[currentPlayer1Index];
+        GameManager.Instance.Player1Color = colors[currentPlayer1Index];
         player2SpriteRenderer.color = colors[currentPlayer2Index];
+        GameManager.Instance.Player2Color = colors[currentPlayer2Index];
     }
 }

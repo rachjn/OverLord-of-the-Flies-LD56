@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(OpenEggsCoroutine());
         swarm = GetComponentInChildren<SwarmManager>();
         rb = GetComponent<Rigidbody2D>();
+
+        var color = (tag == "Player1") ? GameManager.Instance.Player1Color : GameManager.Instance.Player2Color;
+        GetComponent<SpriteRenderer>().color = color;
     }
 
     void Update()

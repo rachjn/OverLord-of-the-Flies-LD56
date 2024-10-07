@@ -43,6 +43,8 @@ public class SwarmManager : MonoBehaviour
     private string team;
     private string enemyTeam;
 
+    // private Color player1Color;
+
     // Start is called before the first frame update
     void Start()
     {
