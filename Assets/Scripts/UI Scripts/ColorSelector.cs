@@ -36,12 +36,12 @@ public class ColorSelector : MonoBehaviour
             CyclePlayer1Color(1);
         }
 
-        // Handle input for Player 2 (Arrow keys)
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // Handle input for Player 2 (J AND L)
+        if (Input.GetKeyDown(KeyCode.J))
         {
             CyclePlayer2Color(-1);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             CyclePlayer2Color(1);
         }

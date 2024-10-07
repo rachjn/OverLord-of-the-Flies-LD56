@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallMovement : MonoBehaviour
 {
-    public float shrinkSpeed = 0.0f; // Speed at which the walls shrink inward
+    public float shrinkSpeed = 0.5f; // Speed at which the walls shrink inward
     public Vector2 minSize = new Vector2(2f, 2f); // The minimum size the walls can shrink to
     public Transform topWall;
     public Transform bottomWall;
@@ -37,14 +37,14 @@ public class WallMovement : MonoBehaviour
         // Move the walls inward at a constant speed
         if (Vector2.Distance(leftWall.position, rightWall.position) > minSize.x)
         {
-            leftWall.position = Vector3.MoveTowards(leftWall.position, originalRightWallPosition, 0.03f * shrinkSpeed * Time.deltaTime);
-            rightWall.position = Vector3.MoveTowards(rightWall.position, originalLeftWallPosition,  0.03f * shrinkSpeed * Time.deltaTime);
+            leftWall.position = Vector3.MoveTowards(leftWall.position, originalRightWallPosition, 0.63f * shrinkSpeed * Time.deltaTime);
+            rightWall.position = Vector3.MoveTowards(rightWall.position, originalLeftWallPosition,  0.63f * shrinkSpeed * Time.deltaTime);
         }
 
         if (Vector2.Distance(topWall.position, bottomWall.position) > minSize.y)
         {
-            topWall.position = Vector3.MoveTowards(topWall.position, originalBottomWallPosition, 0.02f * shrinkSpeed * Time.deltaTime);
-            bottomWall.position = Vector3.MoveTowards(bottomWall.position, originalTopWallPosition, 0.02f * shrinkSpeed * Time.deltaTime);
+            topWall.position = Vector3.MoveTowards(topWall.position, originalBottomWallPosition, 0.52f * shrinkSpeed * Time.deltaTime);
+            bottomWall.position = Vector3.MoveTowards(bottomWall.position, originalTopWallPosition, 0.52f * shrinkSpeed * Time.deltaTime);
         }
     }
 }
