@@ -4761,6 +4761,7 @@ MonoBehaviour:
   pickUp: {fileID: 8300000, guid: c8551c1386606429295b4577971e1118, type: 3}
   cheer: {fileID: 0}
   metal: {fileID: 0}
+  playMusicOnStart: 1
   sfxVolume: 1
 --- !u!4 &774031326
 Transform:

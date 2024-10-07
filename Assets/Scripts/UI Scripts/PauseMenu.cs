@@ -41,14 +41,18 @@ public class PauseMenu : MonoBehaviour
     // Restart the current level
     public void RestartGame()
     {
-        Time.timeScale = 1f;  // Ensure normal game time before reloading
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Reload the current scene
+        GameManager.Instance.winner = "none";
         Debug.Log("Restarting Game...");
+        Time.timeScale = 1f;  // Ensure normal game time before reloading
+        SceneManager.LoadScene("MainScene");  // Reload the current scene
     }
 
     // Quit the game (works in a build, not in the editor)
     public void ReturnToMenu()
     {
+        GameManager.Instance.winner = "none";
         Debug.Log("Returning to menu...");
+        SceneManager.LoadScene("MenuScene");  // go to menu
+
     }
 }
