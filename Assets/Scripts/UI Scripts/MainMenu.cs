@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     // This function will be called when the Start button is clicked
     public void StartGame()
     {
-        SceneManager.LoadScene("MainScene");  // uncomment for build
+        SceneManager.LoadScene("PlayerSelect");  // uncomment for build
         Debug.Log("START!");
     }
 
