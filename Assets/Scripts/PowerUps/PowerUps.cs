@@ -26,6 +26,7 @@ public class PowerUps : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log(col.tag);
         if (col.CompareTag("Player1") ||col.CompareTag("Player2") )
         {
             if (col.GetComponent<PlayerItems>().addPowerUp(this))
