@@ -7485,6 +7485,14 @@ PrefabInstance:
       propertyPath: openRadius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6336227865049760011, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 896846492}
+    - target: {fileID: 6336227865049760011, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 1219340912}
     - target: {fileID: 7335505891116476475, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
       propertyPath: enemyObject
       value: 
