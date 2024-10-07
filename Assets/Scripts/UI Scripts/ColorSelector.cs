@@ -19,8 +19,13 @@ public class ColorSelector : MonoBehaviour
     public SpriteRenderer player1SpriteRenderer;
     public SpriteRenderer player2SpriteRenderer;
 
+    AudioManager audioManager;
+
+
     private void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         // Set default sprites
         UpdateSpriteColors(); // Set initial sprite colors
         UpdateIndicators(); // Update indicators on start
@@ -31,20 +36,24 @@ public class ColorSelector : MonoBehaviour
         // Handle input for Player 1 (A and D keys)
         if (Input.GetKeyDown(KeyCode.A))
         {
+            audioManager.PlaySFX(audioManager.pickUp);
             CyclePlayer1Color(-1);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            audioManager.PlaySFX(audioManager.pickUp);
             CyclePlayer1Color(1);
         }
 
         // Handle input for Player 2 (J AND L)
         if (Input.GetKeyDown(KeyCode.J))
         {
+            audioManager.PlaySFX(audioManager.pickUp);
             CyclePlayer2Color(-1);
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
+            audioManager.PlaySFX(audioManager.pickUp);
             CyclePlayer2Color(1);
         }
 
