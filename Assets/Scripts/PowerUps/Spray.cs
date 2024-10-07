@@ -31,8 +31,8 @@ public class Spray : PowerUps
         GameObject sprayHand = Instantiate(sprayHandPrefab, sprayStartPosition, Quaternion.identity);  // Adjust this based on your hierarchy
 
         // Disable player and enemy movement
-        enemyT.GetComponent<PlayerController>().DisablePlayerMovement(5);
-        playerT.GetComponent<PlayerController>().DisablePlayerMovement(5);
+        enemyT.GetComponent<PlayerController>().DisablePlayerMovement(2.5f);
+        playerT.GetComponent<PlayerController>().DisablePlayerMovement(2.5f);
 
         // Call the spray animation coroutine and wait for it to finish
         yield return StartCoroutine(MoveAndShake(sprayHand, sprayStartPosition, enemyPosition));
