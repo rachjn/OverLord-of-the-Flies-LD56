@@ -15,6 +15,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip background;
     public AudioClip hit;
     public AudioClip pickUp;
+    public AudioClip cheer;
+
+        public float sfxVolume = 1.0f; // Default volume (1.0 = max volume, 0.0 = min)
+
 
     private void Start()
     {
@@ -22,9 +26,9 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    public void PlaySFX(AudioClip clip)
+   public void PlaySFX(AudioClip clip, float volume = 1.0f)
     {
-        sfxSource.PlayOneShot(clip);
+        sfxSource.PlayOneShot(clip, volume);
     }
 
 }
