@@ -127,10 +127,6 @@ public class Stomp : PowerUps
 
         // Shake effect on impact
         yield return StartCoroutine(ShakeStompHand(stompHand, indicator, enemy));
-
-        // Optionally, add damage or other effects on impact
-        Debug.Log("Stomp Hand has hit the enemy!");
-        
         Destroy(stompHand); 
     }
 
@@ -140,7 +136,6 @@ public class Stomp : PowerUps
 
     private IEnumerator ShakeStompHand(GameObject stompHand, GameObject circle, String enemy)
     {
-        Debug.Log("shake hand");
         Vector3 originalPosition = stompHand.transform.position;
         float shakeMagnitude = 0.1f;  // How much the hand shakes
 
@@ -172,7 +167,6 @@ public class Stomp : PowerUps
         yield return new WaitForSeconds(0.05f);
         Destroy(circle);
 
-        Debug.Log("circle expanded hand dropped");
         
     }
 
