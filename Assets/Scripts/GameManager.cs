@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         get {return GameManager.Instance.player2Color;}
         set {GameManager.Instance.player2Color = value;}
     }
-    public string winner;
+    public string winner = "";
     private Color player1Color;
     private Color player2Color;
 
@@ -40,28 +40,38 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("MainScene");
+        winner = "";
     }
 
     public void WinGame(string player)
     {
-        winner = player;
-        SceneManager.sceneLoaded += OnWinScreen;
-        SceneManager.LoadScene("EndScene");
+        if (winner == "")
+        {
+            winner = player;
+            SceneManager.sceneLoaded += OnWinScreen;
+            SceneManager.LoadScene("EndScene");
+        }
     }
 
     void OnWinScreen(Scene _, LoadSceneMode __)
     {
         var winDisplay1 = GameObject.Find("fly1win");
         var winDisplay2 = GameObject.Find("fly2win");
-        if (winner == "Player1")
+        var paperSprite = GameObject.Find("long paper").GetComponent<SpriteRenderer>();
+        if (winDisplay1 != null && winDisplay2 != null)
         {
-            winDisplay1.SetActive(true);
-            winDisplay2.SetActive(false);
-        }
-        else 
-        {
-            winDisplay1.SetActive(false);
-            winDisplay2.SetActive(true);
+            if (winner == "Player1")
+            {
+                paperSprite.color = player1Color;
+                winDisplay1.SetActive(false);
+                winDisplay2.SetActive(true);
+            }
+            else 
+            {
+                paperSprite.color = player2Color;
+                winDisplay1.SetActive(true);
+                winDisplay2.SetActive(false);
+            }
         }
         SceneManager.sceneLoaded -= OnWinScreen;
     }

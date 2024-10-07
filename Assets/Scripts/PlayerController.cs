@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float staminaRegen = 1f;
     public LayerMask itemLayer;
     public float staminaRegenDelay = 2f;
+    public float openRadius = 1f;
     public int playerControlScheme;
 
     private float staminaRegenTimer = 0f;
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            var items = Physics2D.OverlapCircleAll(transform.position, 1.5f, itemLayer);
+            var items = Physics2D.OverlapCircleAll(transform.position, openRadius, itemLayer);
             EggManager egg = null;
             // Debug.Log(items.Length);
             foreach (Collider2D item in items)

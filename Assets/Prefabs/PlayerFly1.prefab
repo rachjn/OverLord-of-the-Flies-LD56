@@ -105,13 +105,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  sprintMultiplier: 2
-  maxStamina: 3
-  staminaRegen: 1
+  sprintMultiplier: 3
+  maxStamina: 2
+  staminaRegen: 0.75
   itemLayer:
     serializedVersion: 2
     m_Bits: 128
   staminaRegenDelay: 2
+  openRadius: 1
   playerControlScheme: 1
   stunAnimation: {fileID: 7673734517820066138}
   isStunned: 0
@@ -128,7 +129,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
