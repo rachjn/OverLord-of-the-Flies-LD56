@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -38,6 +39,6 @@ public class Flick : PowerUps
                 enemyRb.AddForce(dir * force, ForceMode2D.Impulse);
             }
         }
-        return null; 
+        yield break; 
     }
 }

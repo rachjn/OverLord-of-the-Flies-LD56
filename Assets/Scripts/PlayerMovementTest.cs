@@ -13,6 +13,8 @@ public class PlayerMovementTest : MonoBehaviour
     public bool isStunned = false;
     private Vector2 movement;
     private Rigidbody2D rb;
+    public GameObject stunAnimation;  // This can be an object with an animation or particle system
+
 
     void Start()
     {
@@ -61,13 +63,26 @@ public class PlayerMovementTest : MonoBehaviour
     {
         StartCoroutine(DisableMovementCoroutine(duration));
     }
-
+    
     private IEnumerator DisableMovementCoroutine(float duration)
     {
-        float oldSpeed = speed;
-        speed = 0f;
-        rb.velocity = rb.velocity * 0;
+        
+        rb.velocity = Vector2.zero;  // Stop movement completely
+        isStunned = true;
+        Debug.Log(stunAnimation!=null);
+        if (stunAnimation != null)
+        {
+            stunAnimation.SetActive(true);  // Show the stun animation if you're using a GameObject
+        }
         yield return new WaitForSeconds(duration);
-        speed = oldSpeed;
+
+        Debug.Log("reactivate mobement ");
+        if (stunAnimation != null)
+        {
+            stunAnimation.SetActive(false);  // Hide the stun animation after the effect
+        }
+
+        isStunned = false;
+
     }
 }
