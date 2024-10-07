@@ -169,7 +169,7 @@ MonoBehaviour:
   radius: 0.3
   height: 2
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 1.5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -287,7 +287,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.05
-  m_LinearDrag: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -313,12 +313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4798551021cb14db79dc6676d95beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AttackRange>k__BackingField: 5
+  <AttackRange>k__BackingField: 3
   <AttackAnimTime>k__BackingField: 0.25
   <AttackTime>k__BackingField: 1.5
   attackDamage: 1
   projectilePrefab: {fileID: 2317760653727478294, guid: da56737931c77424087a71fcb24fe5f7, type: 3}
-  selfKnockback: 0.01
+  selfKnockback: 0.015
 --- !u!95 &8357462739346778570
 Animator:
   serializedVersion: 5

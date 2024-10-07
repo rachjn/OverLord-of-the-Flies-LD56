@@ -13,10 +13,12 @@ public class EggManager : MonoBehaviour
     private string openClip = "eggOpen";
     private Animator animator;
     private bool opened = false;
+    private int spawnLayer;
     void Start()
     {
         animator = GetComponent<Animator>();
         animator.enabled = false;
+        spawnLayer = LayerMask.NameToLayer("Flies");
         // Debug.LogWarning(anim.clip);
         // OpenEgg("Player1");
     }
@@ -32,8 +34,10 @@ public class EggManager : MonoBehaviour
     {
         animator.enabled = true;
         GameObject fly = Instantiate(flyToSpawn, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
-        animator.Play(openClip);
+        fly.layer = spawnLayer;
         fly.tag = flyTag;
+
+        animator.Play(openClip);
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 0.2f);
         Destroy(gameObject);

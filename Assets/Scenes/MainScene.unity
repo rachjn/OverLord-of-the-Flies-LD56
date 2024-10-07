@@ -4528,6 +4528,8 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: 9b623b858ff3743ab9161f1c6f543531, type: 3}
   hit: {fileID: 8300000, guid: b9cfd19ad95614b55b4879bcbbb49a46, type: 3}
   pickUp: {fileID: 8300000, guid: c8551c1386606429295b4577971e1118, type: 3}
+  cheer: {fileID: 0}
+  sfxVolume: 1
 --- !u!4 &774031326
 Transform:
   m_ObjectHideFlags: 0
@@ -5624,22 +5626,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFly2
       objectReference: {fileID: 0}
-    - target: {fileID: 4972790955068017604, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
-      propertyPath: enemy
-      value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972790955068017604, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
-      propertyPath: player
-      value: Player2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972790955068017604, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
-      propertyPath: playerControlScheme
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6063672017618190961, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7999495821452751184, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.8
@@ -5679,18 +5665,6 @@ PrefabInstance:
     - target: {fileID: 7999495821452751184, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113505732102421851, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
-      propertyPath: itemLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 8584099573397168884, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8584099573397168884, guid: 223ef9cd5e803b44d9f1f70dc8fd893c, type: 3}
-      propertyPath: healthBar2
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7250,22 +7224,6 @@ PrefabInstance:
     - target: {fileID: 5750533404684391087, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789063689887669924, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
-      propertyPath: itemLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336227865049760011, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336227865049760011, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
-      propertyPath: healthBar2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424098732916171150, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

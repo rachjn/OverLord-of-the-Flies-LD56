@@ -71,7 +71,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
             {
                 enemyPosition = enemyFly.transform.position;
             }
-            sprite.transform.position = Vector3.Lerp(transform.position, enemyPosition, 1 - attackAnimTimer / AttackAnimTime);
+            sprite.transform.position = Vector3.Lerp(transform.position, enemyPosition, (float) Math.Sin(Math.PI * (attackAnimTimer / AttackAnimTime)));
             attackAnimTimer += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }

@@ -169,7 +169,7 @@ MonoBehaviour:
   radius: 0.3
   height: 2
   canMove: 1
-  maxSpeed: 1.5
+  maxSpeed: 1
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -251,7 +251,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.2
+  m_Mass: 0.3
   m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -323,11 +323,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c587f9d3949beb241a5e767e3dcc7b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AttackRange>k__BackingField: 0.75
+  <AttackRange>k__BackingField: 0.5
   <AttackAnimTime>k__BackingField: 0.5
   <AttackTime>k__BackingField: 2
   attackDamage: 2
-  knockback: 3
+  knockback: 0.4
   selfKnockback: 0
 --- !u!95 &1593573246862176905
 Animator:

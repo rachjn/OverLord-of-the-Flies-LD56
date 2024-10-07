@@ -81,9 +81,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7335505891116476475, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+      propertyPath: enemy
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335505891116476475, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+      propertyPath: player
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335505891116476475, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
       propertyPath: enemyObject
       value: 
       objectReference: {fileID: 1630351089181484808, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+    - target: {fileID: 7335505891116476475, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
+      propertyPath: playerControlScheme
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7673734517820066138, guid: a5bdb4d86f02ace44b6b8eab29b0085d, type: 3}
       propertyPath: m_IsActive
       value: 0
