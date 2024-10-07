@@ -51,12 +51,11 @@ public class GameManager : MonoBehaviour
         if (winner == "")
         {
             winner = player;
-            SceneManager.sceneLoaded += OnWinScreen;
             SceneManager.LoadScene("EndingCutscene");
         }
     }
 
-    void OnWinScreen(Scene _, LoadSceneMode __)
+    public void OnWinScreen(Scene _, LoadSceneMode __)
     {
         var winDisplay1 = GameObject.Find("fly1win");
         var winDisplay2 = GameObject.Find("fly2win");

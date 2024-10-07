@@ -5,6 +5,7 @@ public class SceneController : MonoBehaviour
 {
    void OnEnable()
    {
-        SceneManager.LoadScene("EndScene");
+      SceneManager.sceneLoaded += GameManager.Instance.OnWinScreen;
+      SceneManager.LoadScene("EndScene");
    }
 }
