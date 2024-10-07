@@ -122,7 +122,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.56, y: 3.01}
+    oldSize: {x: 1.78, y: 1.505}
     newSize: {x: 1, y: 0.8828125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -151,3 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpType: 1
   force: 0
+  sprayHandPrefab: {fileID: 7569435623664126605, guid: 49b3d09e82dcc4232b54096b2062eb5e, type: 3}

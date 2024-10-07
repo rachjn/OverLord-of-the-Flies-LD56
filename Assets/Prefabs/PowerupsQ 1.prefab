@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848545812159066595}
   - component: {fileID: 108710998770047811}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: p3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5283603356773098227}
   - component: {fileID: 4939450834421687302}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: p1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717941184336452239}
   - component: {fileID: 906866087226341839}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: p1UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6461670291344289732}
   - component: {fileID: 9120316267229811330}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PowerupsQ 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7344157472247150706}
   - component: {fileID: 5600142537023255950}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: p3UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7768808280711193164}
   - component: {fileID: 965076724760906842}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1288538283460275463}
   - component: {fileID: 5510649034222468581}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: p2UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3556182085770603368}
   - component: {fileID: 123208611363806016}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         {
             var items = Physics2D.OverlapCircleAll(transform.position, 1.5f, itemLayer);
             EggManager egg = null;
-            Debug.Log(items.Length);
+            // Debug.Log(items.Length);
             foreach (Collider2D item in items)
             {
                 egg = null;
