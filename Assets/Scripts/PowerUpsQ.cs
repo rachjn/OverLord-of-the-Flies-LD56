@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
 using System.Linq;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PowerUpsQ : MonoBehaviour

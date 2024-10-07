@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float staminaRegen = 1f;
     public LayerMask itemLayer;
     public float staminaRegenDelay = 2f;
-    public float openRadius = 1f;
+    public float openRadius = 0.5f;
     public int playerControlScheme;
 
     private float staminaRegenTimer = 0f;
