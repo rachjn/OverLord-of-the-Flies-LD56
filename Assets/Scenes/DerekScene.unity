@@ -2083,10 +2083,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTankFlyP1
       objectReference: {fileID: 0}
-    - target: {fileID: 9115991472869228310, guid: 5098ed58e08860443ad85761a14f1f65, type: 3}
-      propertyPath: m_TagString
-      value: Player1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2103,18 +2099,6 @@ PrefabInstance:
     - target: {fileID: 2317760653727478294, guid: da56737931c77424087a71fcb24fe5f7, type: 3}
       propertyPath: m_Name
       value: Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 3750670697639687462, guid: da56737931c77424087a71fcb24fe5f7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3750670697639687462, guid: da56737931c77424087a71fcb24fe5f7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3750670697639687462, guid: da56737931c77424087a71fcb24fe5f7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3750670697639687462, guid: da56737931c77424087a71fcb24fe5f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2260,10 +2244,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestFlyP1
       objectReference: {fileID: 0}
-    - target: {fileID: 8222329589502458251, guid: 6fa2833390425cb4e8c814bd41d0dfb7, type: 3}
-      propertyPath: m_TagString
-      value: Player1
-      objectReference: {fileID: 0}
     - target: {fileID: 8642156383562008448, guid: 6fa2833390425cb4e8c814bd41d0dfb7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9300003
@@ -2364,10 +2344,6 @@ PrefabInstance:
     - target: {fileID: 4467684345282110673, guid: 6dbfffbb837deab488392ba880751d51, type: 3}
       propertyPath: m_Name
       value: TestRangedFlyP1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4467684345282110673, guid: 6dbfffbb837deab488392ba880751d51, type: 3}
-      propertyPath: m_TagString
-      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
