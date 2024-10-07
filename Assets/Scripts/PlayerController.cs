@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(OpenEggsCoroutine());
         swarm = GetComponentInChildren<SwarmManager>();
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = 5f;  // Adjust this value based on how quickly you want the player to stop
+
 
         var color = (tag == "Player1") ? GameManager.Instance.Player1Color : GameManager.Instance.Player2Color;
         GetComponent<SpriteRenderer>().color = color;
@@ -86,7 +88,6 @@ public class PlayerController : MonoBehaviour
                     stamina = Math.Clamp(stamina + staminaRegen * Time.deltaTime, 0, maxStamina);
                 }
             }
-        
             Vector2 force = movement * speed * (sprinting ? sprintMultiplier : 1f);
             rb.AddForce(force);
         }

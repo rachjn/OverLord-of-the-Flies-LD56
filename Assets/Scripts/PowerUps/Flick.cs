@@ -27,6 +27,10 @@ public class Flick : PowerUps
         GameObject player = GameObject.FindGameObjectWithTag(self);
         Transform playerT = player.transform;
         Vector2 enemyPosition = enemyT.transform.position;
+
+        //DISABLE ENEMY MOVEMENT
+        enemyT.GetComponent<PlayerController>().DisablePlayerMovement(1.5f);
+
         // Determine where to instantiate the flickPrefab (top or bottom)
         Vector2 flickStartPosition;
         if (enemyPosition.y > 0)
@@ -37,6 +41,7 @@ public class Flick : PowerUps
         {
             flickStartPosition = new Vector2(enemyPosition.x, enemyPosition.y - 5f);  // Start from bottom
         }
+
 
         // Instantiate the flickPrefab
         GameObject flickObject = Instantiate(flickPrefab, flickStartPosition, Quaternion.identity);
@@ -71,6 +76,7 @@ public class Flick : PowerUps
             if (enemyRb != null)
             {
                 Vector2 dir = (enemyObj.transform.position - playerT.position).normalized;
+                // enemyRb.velocity = Vector2.zero;  // Reset current velocity to avoid undesired movement
                 enemyRb.AddForce(dir * force, ForceMode2D.Impulse);
             }
         }
