@@ -10,10 +10,11 @@ public class MainMenu : MonoBehaviour
 
     AudioManager audioManager;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
+    
 
     private void Update()
     {

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("----- Audio Clip -----")]
 
+// public bool playMusicOnStart = true; // Flag to control whether music plays on Start
     public AudioClip die;
     public AudioClip background;
     public AudioClip hit;
