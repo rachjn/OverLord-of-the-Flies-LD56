@@ -5,7 +5,6 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public static bool isPaused = false;
-
     void Update()
     {
         // Toggle pause menu when Escape is pressed
@@ -41,7 +40,6 @@ public class PauseMenu : MonoBehaviour
     // Restart the current level
     public void RestartGame()
     {
-        GameManager.Instance.winner = "none";
         Debug.Log("Restarting Game...");
         Time.timeScale = 1f;  // Ensure normal game time before reloading
         SceneManager.LoadScene("MainScene");  // Reload the current scene
@@ -51,8 +49,8 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMenu()
     {
         GameManager.Instance.winner = "none";
+        Time.timeScale = 1f;  // Ensure normal game time before reloading
         Debug.Log("Returning to menu...");
         SceneManager.LoadScene("MenuScene");  // go to menu
-
     }
 }
